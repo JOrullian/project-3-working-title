@@ -8,7 +8,11 @@ const AppNavbar = () => {
 
     return (
         <>
-            <Navbar></Navbar>
+            <Navbar>
+                <Container>
+                    
+                </Container>
+            </Navbar>
         </>
     )
 }
