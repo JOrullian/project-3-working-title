@@ -5,7 +5,7 @@ const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
   await cleanDB('Category', 'categories');
-  await cleanDB('Product', 'products');
+  await cleanDB('Skill', 'skills');
   await cleanDB('User', 'users');
 
 
@@ -15,7 +15,7 @@ db.once('open', async () => {
     { name: 'cat3' },
     { name: 'cat4' },
     { name: 'cat5' },
-    { name: 'other'}
+    { name: 'other' }
   ]);
 
 
@@ -24,16 +24,16 @@ db.once('open', async () => {
 
   const skills = await Skill.insertMany([
     {
-        name: 'Skill 1',
-        category: categories[0]._id,
+      name: 'Skill 1',
+      category: categories[0]._id,
     },
     {
-        name: 'Skill 2',
-        category: categories[1]._id,
+      name: 'Skill 2',
+      category: categories[1]._id,
     },
     {
-        name: 'Skill 3',
-        category: categories[2]._id,
+      name: 'Skill 3',
+      category: categories[2]._id,
     }
   ]);
 
