@@ -16,6 +16,9 @@ const AppNavbar = () => {
             <Nav.Link as={Link} to="/chat">
               {/* Add chat icon here */}
             </Nav.Link>
+            <Nav.Link as={Link} to="/explore">
+              {/* Add explore icon here */}
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
