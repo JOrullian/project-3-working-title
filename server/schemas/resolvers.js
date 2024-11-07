@@ -24,11 +24,24 @@ const resolvers = {
 
             return { token, user };
         },
+        addSkill: async (parent, args, context) => {
+            if (context.user) {
+                const skill = await Skill.create({
+                    name,
+                    category
+                })
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { skill: skill._id } }
+                );
+                return skill
+            }
+            throw AuthenticationError
+        },
         updateUser: async (parent, args, context) => {
             if (context.user) {
                 return await User.findByIdAndUpdate(context.user._id, args, { new: true });
             }
-
             throw AuthenticationError;
         },
         login: async (parent, { email, password }) => {
