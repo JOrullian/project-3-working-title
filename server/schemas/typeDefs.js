@@ -1,4 +1,6 @@
 const typeDefs = `
+  scalar DateTime
+
   type User {
     _id: ID
     firstName: String
@@ -12,7 +14,7 @@ const typeDefs = `
   type Skill {
     _id: ID
     name: String
-    timeAvailable: Date
+    timeAvailable: DateTime
     description: String
     category: Category
     user: User
@@ -37,7 +39,7 @@ const typeDefs = `
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addSkill(name: String!, timeAvailable: Date!, description: String!, category: ID, User: ID): Skill
+    addSkill(name: String!, timeAvailable: DateTime!, description: String!, category: ID, User: ID): Skill
     login(email: String!, password: String!): Auth
   }
 `;
