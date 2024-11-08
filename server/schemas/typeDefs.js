@@ -4,7 +4,7 @@ const typeDefs = `
     firstName: String
     lastName: String
     email: String
-    location:
+    location: String
     skill: [Skill]
     friends: [User]
   }
