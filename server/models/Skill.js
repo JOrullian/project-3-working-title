@@ -10,9 +10,6 @@ const skillSchema = new Schema({
         required: true,
         trim: true
     },
-    image: {
-        type: String
-    },
     timeAvailable: {
         type: Date
     },

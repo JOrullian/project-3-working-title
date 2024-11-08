@@ -28,7 +28,9 @@ const resolvers = {
             if (context.user) {
                 const skill = await Skill.create({
                     name,
-                    category
+                    timeAvailable,
+                    category,
+                    user
                 })
                 await User.findOneAndUpdate(
                     { _id: context.user._id },
