@@ -10,36 +10,58 @@ db.once('open', async () => {
 
 
   const categories = await Category.insertMany([
-    { name: 'cat1' },
-    { name: 'cat2' },
-    { name: 'cat3' },
-    { name: 'cat4' },
-    { name: 'cat5' },
-    { name: 'other' }
+    {
+      title: "Art",
+      image: "",
+    },
+    {
+      title: "Technology",
+      image: "",
+    },
+    {
+      title: "Music",
+      image: "",
+    },
+    {
+      title: "Education",
+      image: "",
+    },
+    {
+      title: "Handicraft",
+      image: "",
+    },
+    {
+      title: "Cooking",
+      image: "",
+    },
+    {
+      title: "Photography",
+      image: "",
+    },
+    {
+      title: "Writing",
+      image: "",
+    },
+    {
+      title: "Fitness",
+      image: "",
+    },
+    {
+      title: "Language",
+      image: "",
+    },
+    {
+      title: "Fashion",
+      image: "",
+    },
+    {
+      title: "Other",
+      image: "",
+    },
   ]);
 
 
   console.log('categories seeded');
-
-
-  const skills = await Skill.insertMany([
-    {
-      name: 'Skill 1',
-      category: categories[0]._id,
-    },
-    {
-      name: 'Skill 2',
-      category: categories[1]._id,
-    },
-    {
-      name: 'Skill 3',
-      category: categories[2]._id,
-    }
-  ]);
-
-
-  console.log('skills seeded');
-
 
   await User.create({
     firstName: 'Tester1',
@@ -58,7 +80,6 @@ db.once('open', async () => {
 
 
   console.log('users seeded');
-
 
   process.exit();
 });
