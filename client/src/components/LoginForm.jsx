@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 
 import { LOGIN_USER } from "../utils/mutations";
@@ -7,7 +6,6 @@ import Auth from "../utils/auth";
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
-  const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -44,7 +42,7 @@ const LoginForm = () => {
       console.error(err);
       setShowAlert(true);
     } finally {
-        setIsSubmitting(false);
+      setIsSubmitting(false);
     }
 
     setUserFormData({
@@ -55,52 +53,50 @@ const LoginForm = () => {
 
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        <Alert
-          dismissible
-          onClose={() => setShowAlert(false)}
-          show={showAlert}
-          variant="danger"
-        >
-          Something went wrong with your login credentials!
-        </Alert>
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="email">Email</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Your email"
-            name="email"
-            onChange={handleInputChange}
-            value={userFormData.email}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Email is required!
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="password">Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Your password"
-            name="password"
-            onChange={handleInputChange}
-            value={userFormData.password}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Password is required!
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Button
-          disabled={isSubmitting || !(userFormData.email && userFormData.password)}
-          type="submit"
-          variant="success"
-        >
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </Button>
-      </Form>
+    {showAlert && <p className="alert alert-danger">Login failed. Please try again.</p>}
+    <form id="login-form" className="login-form" onSubmit={handleFormSubmit} noValidate>
+      <div className="login-input-line">
+        <input
+          className="login-input"
+          id="login-email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          value={userFormData.email}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="login-input-line">
+        <input
+          className="login-input"
+          id="login-password"
+          name="password"
+          type="password"
+          placeholder="Password"
+          required
+          onChange={handleInputChange}
+          value={userFormData.password}
+        />
+      </div>
+      <div className="login-selections-container">
+        <div className="remember-me-container">
+          <input type="checkbox" id="remember-me" name="rememberMe" />
+          <label htmlFor="remember-me">Remember me</label>
+        </div>
+      </div>
+      <button className="login-btn" id="login-btn" disabled={isSubmitting}>
+        {isSubmitting ? "Logging in..." : "Log In"}
+      </button>
+      <div className="login-signup-subtext">
+        <p>
+          Don't have an account?{" "}
+          <a className="signup-link" href="/">
+            Sign up
+          </a>
+        </p>
+      </div>
+    </form>
     </>
   );
 };

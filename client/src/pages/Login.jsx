@@ -1,4 +1,5 @@
-import Logo from '../assets/logo.svg'
+import Logo from '../assets/logo.svg';
+import LoginForm from '../components/LoginForm';
 
 export default function Login(props) {
     return (
@@ -15,24 +16,7 @@ export default function Login(props) {
                         <p>Enter your email and password to log in</p>
                     </div>
                 </header>
-                <form id="login-form" className="login-form">
-                    <div className='login-input-line'>
-                        <input className='login-input' id='login-email' type='email' placeholder='Email'></input>
-                    </div>
-                    <div className='login-input-line'>
-                        <input className='login-input' id='login-password' type='password' placeholder='Password'></input>
-                    </div>
-                    <div className='login-selections-container'>
-                        <div className='remember-me-container'>
-                            <input type='checkbox'></input>
-                            <p>Remember me</p>
-                        </div>
-                    </div>
-                    <button className='login-btn' id='login-btn'>Log In</button>
-                    <div className='login-signup-subtext'>
-                        <p>Don't have an account? <a className='signup-link' href='/'>Sign up</a></p>
-                    </div>
-                </form>
+                <LoginForm />
             </div>
         </>
     )
