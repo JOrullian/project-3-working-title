@@ -13,6 +13,9 @@ const skillSchema = new Schema({
     timeAvailable: {
         type: Date
     },
+    description: {
+        type: String
+    },
     category: {
         type: Schema.Types.ObjectId,
         ref: 'Category',
