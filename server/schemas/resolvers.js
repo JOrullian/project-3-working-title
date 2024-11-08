@@ -29,6 +29,7 @@ const resolvers = {
                 const skill = await Skill.create({
                     name,
                     timeAvailable,
+                    description,
                     category,
                     user
                 })
