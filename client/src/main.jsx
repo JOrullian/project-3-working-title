@@ -5,6 +5,7 @@ import App from './App.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import Login from './pages/Login.jsx'
 import Profile from './pages/Profile.jsx'
+import SkillHighlightPage from './pages/SkillHighlight.jsx'
 
 import './index.css'
 
@@ -21,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: '/Login',
         element: <Login />,
+      },
+      {
+        path: '/profile',
+        element: <Profile />
+      },
+      {
+        path: '/skillhighlight',
+        element: <SkillHighlightPage />
       },
     ],
   },
