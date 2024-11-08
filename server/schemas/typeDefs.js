@@ -4,19 +4,23 @@ const typeDefs = `
     firstName: String
     lastName: String
     email: String
+    location:
     skill: [Skill]
+    friends: [User]
   }
 
   type Skill {
     _id: ID
     name: String
-    image: String
+    timeAvailable: Date
     category: Category
+    user: User
   }
 
   type Category {
     _id: ID
     name: String
+    image: String
   }
 
   type Auth {
@@ -32,7 +36,7 @@ const typeDefs = `
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addSkill(name: String!, category: ID): Skill
+    addSkill(name: String!, timeAvailable: Date!, category: ID, User: ID): Skill
     login(email: String!, password: String!): Auth
   }
 `;
