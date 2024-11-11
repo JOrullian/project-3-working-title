@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard.jsx'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
 import Profile from './pages/Profile.jsx'
+import SkillHighlightPage from './pages/SkillHighlight.jsx'
 
 import './index.css'
 
@@ -24,9 +25,17 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
+        path: '/profile',
+        element: <Profile />
+      },
+      {
+        path: '/skillhighlight',
+        element: <SkillHighlightPage />
+
         path: '/Signup',
         element: <Signup />
       }
+
     ],
   },
 ]);

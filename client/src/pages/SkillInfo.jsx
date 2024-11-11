@@ -1,4 +1,4 @@
-export default function SkillHighlightPage(props) {
+export default function SkillInfoPage(props) {
     return (
         <>
             
