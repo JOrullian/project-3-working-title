@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
-const Skill = require('./Skill')
+const Skill = require('./Skill');
 
 const userSchema = new Schema({
   firstName: {
@@ -26,7 +26,15 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  skill: [Skill.schema]
+  location: {
+  },
+  skill: [Skill.schema],
+  friends: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
+]
 });
 
 // set up pre-save middleware to create password

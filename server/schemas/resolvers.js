@@ -1,7 +1,9 @@
 const { User, Skill, Category } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
+const { DateTimeResolver } = require('graphql-scalars');
 
 const resolvers = {
+    DateTime: DateTimeResolver,
     Query: {
         categories: async () => {
             return await Category.find();
@@ -26,9 +28,14 @@ const resolvers = {
         },
         addSkill: async (parent, args, context) => {
             if (context.user) {
+                const { name, timeAvailable, description, category, user } = args;
+
                 const skill = await Skill.create({
                     name,
-                    category
+                    timeAvailable,
+                    description,
+                    category,
+                    user
                 })
                 await User.findOneAndUpdate(
                     { _id: context.user._id },

@@ -119,7 +119,8 @@
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~ Login Page ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-.login-main-container {
+.login-main-container,
+.signup-main-container {
     height: 100%;
     width: 100%;
     background: linear-gradient(19deg, #1f2d33, #0F7173);
@@ -129,7 +130,8 @@
     justify-content: center;
 }
 
-.login-header {
+.login-header,
+.signup-header {
     height: 30%;
     width: var(--evenWidth);
     margin-bottom: 2rem;
@@ -139,25 +141,29 @@
     justify-content: space-evenly;
 }
 
-.login-logo-container {
+.login-logo-container,
+.signup-logo-container {
     height: 4rem;
     width: 4rem;
 }
 
-.login-header-title {
+.login-header-title,
+.signup-header-title {
     color: white;
     font-size: 230%;
     font-weight: 600;
     text-align: center;
 }
 
-.login-header-subtext {
+.login-header-subtext,
+.signup-header-subtext {
     color: white;
     text-align: center;
     font-size: 80%;
 }
 
-.login-form {
+.login-form,
+.signup-form {
     height: 25rem;
     border-radius: 1rem;
     width: var(--evenWidth);
@@ -168,7 +174,8 @@
     background-color: #ffffff;
 }
 
-.login-input-line {
+.login-input-line,
+.signup-input-line {
     height: 4rem;
     width: 85%;
     display: flex;
@@ -178,7 +185,8 @@
     margin-bottom: .5rem;
 }
 
-.login-input {
+.login-input,
+.signup-input {
     height: 60%;
     width: 100%;
     border: 1px solid #e0e0e0;
@@ -188,7 +196,8 @@
     font-size: 110%;
 }
 
-.login-input:focus {
+.login-input:focus,
+.signup-input:focus {
     outline: none;
 }
 
@@ -206,7 +215,8 @@
     color: var(--secondary);
 }
 
-.login-btn {
+.login-btn,
+.signup-btn {
     height: 3rem;
     width: 85%;
     border: none;
