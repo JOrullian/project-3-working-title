@@ -10,7 +10,10 @@ const skillSchema = new Schema({
         required: true,
         trim: true
     },
-    image: {
+    timeAvailable: {
+        type: Date
+    },
+    description: {
         type: String
     },
     category: {
@@ -18,6 +21,11 @@ const skillSchema = new Schema({
         ref: 'Category',
         required: true
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 });
 
 

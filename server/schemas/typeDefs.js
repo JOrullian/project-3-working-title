@@ -1,22 +1,29 @@
 const typeDefs = `
+  scalar DateTime
+
   type User {
     _id: ID
     firstName: String
     lastName: String
     email: String
+    location: String
     skill: [Skill]
+    friends: [User]
   }
 
   type Skill {
     _id: ID
     name: String
-    image: String
+    timeAvailable: DateTime
+    description: String
     category: Category
+    user: User
   }
 
   type Category {
     _id: ID
     name: String
+    image: String
   }
 
   type Auth {
@@ -32,7 +39,8 @@ const typeDefs = `
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addSkill(name: String!, category: ID): Skill
+    updateUser(firstName: String, lastName: String, email: String, location: String): User
+    addSkill(name: String!, timeAvailable: DateTime!, description: String!, category: ID, User: ID): Skill
     login(email: String!, password: String!): Auth
   }
 `;
