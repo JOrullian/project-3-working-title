@@ -7,6 +7,10 @@ const { authMiddleware } = require('./utils/auth');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
+const http = require('http');
+const { Server } = require('socket.io')
+const cors = require('cors')
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
@@ -17,6 +21,30 @@ const server = new ApolloServer({
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async () => {
   await server.start();
+
+  app.use(cors());
+  const serverIO = http.createServer(app)
+  const io = new Server(serverIO, {
+    cors: {
+      origin: "http://localhost:3000",
+      methods: ['GET', 'POST']
+    }
+  })
+  serverIO.listen(4000, () => {
+    console.log(`Server is RUNNING on port ${PORT}`)
+  })
+
+  io.on('connection', (socket) => {
+    console.log(`User Connected: ${socket.id}`)
+
+    socket.on('joinRoom', (data) => {
+      socket.join(data)
+    })
+
+    socket.on('sendMessage', (data) => {
+      socket.to(data.room).emit('receiveMessage', data)
+    })
+  })
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());

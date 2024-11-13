@@ -34,14 +34,13 @@ const router = createBrowserRouter([
         element: <SkillHighlightPage />
       },
       {
-        path: '/chat',
-        element: <Chat />
-      },
-      {
         path: '/Signup',
         element: <Signup />
+      },
+      {
+        path: '/chat',
+        element: <Chat />
       }
-
     ],
   },
 ]);
