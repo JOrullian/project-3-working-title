@@ -1,6 +1,7 @@
 import BackArrow from '../assets/back-arrow.svg'
 import Settings from '../assets/settings.svg'
 import ProfileImg from '../assets/profile-img.svg'
+import ChatWindow from '../components/ChatWindow'
 
 export default function Chat(props) {
     return (
