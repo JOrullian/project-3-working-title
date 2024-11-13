@@ -33,6 +33,7 @@ const ChatWindow = () => {
                     setRoom(event.target.value)
                 }}
             />
+            <button onClick={joinRoom}>Join Room</button>
             <input placeholder="Enter Message" onChange={(event) =>
                 setMessage(event.target.value)
             } />
