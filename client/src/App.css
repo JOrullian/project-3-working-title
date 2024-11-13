@@ -3,6 +3,7 @@
     --secondary: #1f2d33;
     --dangerRed: #CC2936;
     --evenWidth: 90%;
+    --btnColor: linear-gradient(19deg, #0f6869, #13898b);
 }
 
 .navbar {
@@ -220,7 +221,7 @@
     height: 3rem;
     width: 85%;
     border: none;
-    background: linear-gradient(19deg, #0f6869, #13898b);
+    background: var(--btnColor);
     color: white;
     font-size: 110%;
     font-weight: 400;
@@ -390,4 +391,188 @@
     width: 100%;
     margin-top: .2rem;
     margin-bottom: .2rem;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~Skill Highlight~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.skill-header {
+    height: 5%;
+    width: var(--evenWidth);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skill-highlight-img-container {
+    height: 7rem;
+    width: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -3px 3px 4px rgba(128, 127, 127, 0.692);
+    border-radius: 100%;
+}
+
+.skill-highlight-img {
+    height: 100%;
+}
+
+.skill-hightlight-description-container {
+    height: 65%;
+    width: var(--evenWidth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.skill-description-header {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-title-container {
+    height: 100%;
+    width: 40%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+}
+
+.skill-type-title {
+    font-weight: 500;
+    font-size: 150%;
+    margin-bottom: .3rem;
+}
+
+.skill-profile-name {
+    font-size: 90%;
+    font-weight: 400;
+    margin-bottom: .3rem;
+}
+
+.skill-location {
+    font-size: 80%;
+    color: #8f8f8f;
+}
+
+.skill-description-body {
+    height: 85%;
+    width: 100%;
+    background-color: #eeeeee;
+    border-radius: 1rem;
+}
+
+.skill-hightlight-footer {
+    height: 3rem;
+    width: var(--evenWidth);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.skill-book-btn {
+    height: 100%;
+    width: 80%;
+    background: var(--btnColor);
+    border: none;
+    font-weight: 400;
+    border-radius: .75rem;
+    font-family: 'Poppins';
+    color: white;
+    font-size: 100%;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~Chat~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.chat-header {
+    margin-top: 3rem;
+    height: 10%;
+    width: var(--evenWidth);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-back-arrow-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.chat-profile-backarrow {
+    margin-top: 1rem;
+    height: 35%;
+}
+
+.chat-profile-img-border {
+    height: 3.7rem;
+    width: 3.7rem;
+    display: flex;
+    background-color: var(--primary);
+    border-radius: 100%;
+    padding: 2px;
+}
+
+.chat-title-container {
+    height: 100%;
+    width: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-profile-img-container {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+.chat-profile-img {
+    height: 70%;
+}
+
+.chat-name {
+    color: var(--secondary);
+    font-size: 90%;
+    font-weight: 500;
+}
+
+.class-settings-icon-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.class-settings-icon {
+    margin-top: 1rem;
+    height: 35%
+}
+
+.chat-body {
+    height: 75%;
+    width: var(--evenWidth);
+    background-color: #f8f8f8;
+    margin-top: 1rem;
+}
+
+.chat-keyboard-container {
+    height: 10%;
+    border-top: 2px solid #eeeeee;
+    width: 100%;
 }
