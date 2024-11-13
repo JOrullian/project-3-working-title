@@ -9,6 +9,7 @@ import Profile from './pages/Profile.jsx'
 import SkillHighlightPage from './pages/SkillHighlight.jsx'
 
 import './index.css'
+import Chat from './pages/Chat.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,11 +32,15 @@ const router = createBrowserRouter([
       {
         path: '/skillhighlight',
         element: <SkillHighlightPage />
-
+      },
+      {
         path: '/Signup',
         element: <Signup />
+      },
+      {
+        path: '/chat',
+        element: <Chat />
       }
-
     ],
   },
 ]);

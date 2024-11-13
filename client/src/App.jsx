@@ -8,6 +8,7 @@ import {
 } from "@apollo/client";
 import "./App.css";
 
+
 // Construct GraphQL endpoint
 const httpLink = createHttpLink({
   uri: "/graphql", // change this during production
@@ -30,6 +31,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
 
 function App() {
   return (
