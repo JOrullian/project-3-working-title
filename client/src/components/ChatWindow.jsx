@@ -28,24 +28,6 @@ const ChatWindow = () => {
         });
     }, [socket])
 
-    // return (
-    //     <div>
-    //         <input
-    //             placeholder="Room Number"
-    //             onChange={(event) => {
-    //                 setRoom(event.target.value)
-    //             }}
-    //         />
-    //         <button onClick={joinRoom}>Join Room</button>
-    //         <input placeholder="Enter Message" onChange={(event) =>
-    //             setMessage(event.target.value)
-    //         } />
-    //         <button onClick={sendMessage}>Send Message</button>
-    //         <h1>Message</h1>
-    //         {messageReceived}
-    //     </div>
-    // )
-
     return (
         <>
             <div className="page-main-container">
