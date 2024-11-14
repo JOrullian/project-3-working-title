@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import CategoryCard from "../components/CategoryCard";
+import PropTypes from "prop-types";
 import { GET_CATEGORIES } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
@@ -24,5 +26,9 @@ function CategoryList() {
     </div>
   );
 }
+
+CategoryList.propTypes = {
+  categories: PropTypes.array,
+};
 
 export default CategoryList;

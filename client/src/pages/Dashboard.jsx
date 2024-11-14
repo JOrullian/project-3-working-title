@@ -12,7 +12,7 @@ export default function Dashboard() {
                         <SearchBar />
                     </div>
                     <div className="notification-icon-container">
-                        <img src={Logo}></img>
+                        <img src={Logo} alt="Logo" />
                     </div>
                 </header>
                 <div className="category-swipe-container">
@@ -37,5 +37,5 @@ export default function Dashboard() {
             </div>
             <Navbar />
         </>
-    )
-};
+    );
+}
