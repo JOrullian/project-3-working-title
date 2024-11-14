@@ -2,6 +2,7 @@ import BackArrow from '../assets/back-arrow.svg'
 import Settings from '../assets/settings.svg'
 import ProfileImg from '../assets/profile-img.svg'
 import RatingStar from '../assets/rating-star.svg'
+import AppNavbar from "../components/Navbar"
 
 export default function Profile() {
     return (
@@ -50,9 +51,7 @@ export default function Profile() {
                     <div className='user-skills-div-bar'></div>
                 </div>
             </div>
-            <div className='navbar'>
-                {/* Placeholder for navbar */}
-            </div>
+            <AppNavbar/>
         </>
     )
 };

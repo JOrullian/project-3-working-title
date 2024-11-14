@@ -1,8 +1,5 @@
 import BackArrow from '../assets/back-arrow.svg'
 import Settings from '../assets/settings.svg'
-import ToolsIcon from '../assets/tools-icon.svg'
-import ChatIcon from '../assets/chat-icon.svg'
-
 
 export default function SkillHighlightPage(props) {
     return (

@@ -1,4 +1,6 @@
-import Logo from '../assets/logo.svg';
+import Logo from '../assets/logo.svg'
+import Navbar from '../components/Navbar'
+import SearchBar from '../components/SearchBar'
 
 export default function Dashboard() {
     return (
@@ -6,7 +8,7 @@ export default function Dashboard() {
             <div className="page-main-container">
                 <header className="page-header-container">
                     <div className="searchbar-container">
-                        {/* <Searchbar/> */}
+                        <SearchBar />
                     </div>
                     <div className="notification-icon-container">
                         <img src={Logo} alt="Logo" />
@@ -32,9 +34,7 @@ export default function Dashboard() {
                     </div>
                 </section>
             </div>
-            <div className='navbar'>
-                {/* Placeholder for navbar */}
-            </div>
+            <Navbar/>
         </>
     );
 }

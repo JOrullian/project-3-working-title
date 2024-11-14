@@ -9,6 +9,7 @@ import Profile from "./pages/Profile.jsx";
 import SkillHighlightPage from "./pages/SkillHighlight.jsx";
 import Chat from "./pages/Chat.jsx";
 import CategoryPage from "./pages/CategoryPage.jsx"
+import Explore from './pages/Explore.jsx'
 
 import "./index.css";
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
         path: "/:categoryName",
         element: <CategoryPage />,
       },
+      {
+        path: '/explore',
+        element: <Explore />
+      }
     ],
   },
 ]);
