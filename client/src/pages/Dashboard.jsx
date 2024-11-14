@@ -1,4 +1,4 @@
-import Logo from '../assets/logo.svg'
+import Logo from '../assets/logo.svg';
 
 export default function Dashboard() {
     return (
@@ -9,7 +9,7 @@ export default function Dashboard() {
                         {/* <Searchbar/> */}
                     </div>
                     <div className="notification-icon-container">
-                        <img src={Logo}></img>
+                        <img src={Logo} alt="Logo" />
                     </div>
                 </header>
                 <div className="category-swipe-container">
@@ -36,5 +36,5 @@ export default function Dashboard() {
                 {/* Placeholder for navbar */}
             </div>
         </>
-    )
-};
+    );
+}

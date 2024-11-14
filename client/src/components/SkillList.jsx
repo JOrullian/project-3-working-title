@@ -1,23 +1,27 @@
-import { useQuery } from "react";
+import { useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
 import SkillCard from "../components/SkillCard";
-
 import { GET_SKILLS } from "../utils/queries";
 
 function SkillList() {
-    const { loading, error, data } = useQuery(GET_SKILLS);
+  const { categoryName } = useParams();
 
-    if (loading) return <p>Loading...</p>
-    if (error) return <p>Error: {error.message}</p>;
+  const { loading: skillsLoading, error: skillsError, data: skillsData } = useQuery(GET_SKILLS, {
+    variables: { categoryName },
+  });
+
+  if (skillsLoading) return <p>Loading...</p>;
+  if (skillsError) return <p>Error loading skills: {skillsError.message}</p>;
 
   return (
     <div className="skill-list">
-      {data.skills.map((skill) => (
+      {skillsData?.skill?.map((userSkill) => (
         <SkillCard
-          key={skill.id}
-          title={skill.title}
-          text={skill.text}
-          imgSrc={skill.imgSrc}
-          onClick={() => console.log(`Clicked on ${skill.title}`)}
+          key={userSkill._id}
+          title={userSkill.name}
+          text={userSkill.text}
+          imgSrc={userSkill.imgSrc}
+          onClick={() => console.log(`Clicked on ${userSkill.name}`)}
         />
       ))}
     </div>

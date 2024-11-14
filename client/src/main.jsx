@@ -1,19 +1,20 @@
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import App from './App.jsx'
-import Dashboard from './pages/Dashboard.jsx'
-import Login from './pages/Login.jsx'
-import Signup from './pages/Signup.jsx'
-import Profile from './pages/Profile.jsx'
-import SkillHighlightPage from './pages/SkillHighlight.jsx'
-import Chat from './pages/Chat.jsx'
+import App from "./App.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import Login from "./pages/Login.jsx";
+import Signup from "./pages/Signup.jsx";
+import Profile from "./pages/Profile.jsx";
+import SkillHighlightPage from "./pages/SkillHighlight.jsx";
+import Chat from "./pages/Chat.jsx";
+import CategoryPage from "./pages/CategoryPage.jsx"
 
-import './index.css'
+import "./index.css";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     errorElement: <Error />,
     children: [
@@ -22,29 +23,33 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: '/Login',
+        path: "/login",
         element: <Login />,
       },
       {
-        path: '/profile',
-        element: <Profile />
+        path: "/profile",
+        element: <Profile />,
       },
       {
-        path: '/skill',
-        element: <SkillHighlightPage />
+        path: "/skill",
+        element: <SkillHighlightPage />,
       },
       {
-        path: '/Signup',
-        element: <Signup />
+        path: "/signup",
+        element: <Signup />,
       },
       {
-        path: '/chat',
-        element: <Chat />
-      }
+        path: "/chat",
+        element: <Chat />,
+      },
+      {
+        path: "/:categoryName",
+        element: <CategoryPage />,
+      },
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
 );

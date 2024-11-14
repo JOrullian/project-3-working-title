@@ -54,6 +54,7 @@ const SignupForm = () => {
       password: "",
       firstName: "",
       lastName: "",
+      city: "",
     });
   };
 

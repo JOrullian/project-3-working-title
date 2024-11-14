@@ -35,6 +35,8 @@ const typeDefs = `
     categories: [Category]
     user: User
     skill: [Skill]
+    nearbySkills(latitude: Float!, longitude: Float!, radius: Int!, skillName: String!): [User]
+    me: User
   }
 
   type Mutation {
