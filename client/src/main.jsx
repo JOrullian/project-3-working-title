@@ -8,6 +8,7 @@ import Signup from './pages/Signup.jsx'
 import Profile from './pages/Profile.jsx'
 import SkillHighlightPage from './pages/SkillHighlight.jsx'
 import Chat from './pages/Chat.jsx'
+import Explore from './pages/Explore.jsx'
 
 import './index.css'
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: '/chat',
         element: <Chat />
+      },
+      {
+        path: '/explore',
+        element: <Explore />
       }
     ],
   },

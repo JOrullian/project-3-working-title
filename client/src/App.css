@@ -6,10 +6,36 @@
     --btnColor: linear-gradient(19deg, #0f6869, #13898b);
 }
 
+.nav-container {
+    height: 100%;
+    width: 100%;
+}
+
 .navbar {
     height: 10%;
     width: 100%;
     background-color: var(--secondary);
+}
+
+.navbar-selections {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.nav-link {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-icon {
+    height: 40%;
+    width: 100%;
 }
 
 .root-container {
@@ -37,10 +63,37 @@
 }
 
 .searchbar-container {
-    background-color: #eeeeee;
     height: 2.5rem;
     width: 80%;
+}
+
+.searchbar {
+    height: 100%;
+    width: 100%;
     border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.searchbar-input {
+    margin-left: .5rem;
+    width: 85%;
+    height: 100%;
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    font-family: 'Poppins';
+}
+
+.searchbar-input:focus {
+    outline: none;
+}
+
+.searchbar-icon {
+    height: 70%;
+    stroke: #1f2d33;
 }
 
 .notification-icon-container {
@@ -575,4 +628,17 @@
     height: 10%;
     border-top: 2px solid #eeeeee;
     width: 100%;
+}
+
+.explore-header {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.explore-body-container {
+    height: 90%;
+    width: var(--evenWidth);
 }
