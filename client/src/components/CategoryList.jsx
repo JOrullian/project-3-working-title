@@ -1,23 +1,29 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CategoryCard from "../components/CategoryCard";
 import PropTypes from "prop-types";
 
 function CategoryList({ categories }) {
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (categoryTitle) => {
+    const categoryName = categoryTitle.toLowerCase();
+    navigate(`/${categoryName}`);
+  };
+
   return (
     <div className="category-list">
       {categories.map((category) => (
-        <Link
+        <div
           key={category.id}
-          to={`/${category.title.toLowerCase()}`}
           className="category-card-link"
+          onClick={() => handleCategoryClick(category.title)}
         >
           <CategoryCard
-            key={category.id}
             title={category.title}
             imgSrc={category.imgSrc}
             onClick={() => console.log(`Clicked on ${category.title}`)}
           />
-        </Link>
+        </div>
       ))}
     </div>
   );

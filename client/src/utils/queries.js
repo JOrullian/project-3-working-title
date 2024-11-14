@@ -68,6 +68,9 @@ export const GET_NEARBY_SKILLS = gql`
   }
 `;
 
+export const GET_SKILL_BY_ID = gql`
+`
+
 export const GET_ME = gql`
   query getMe {
     me {

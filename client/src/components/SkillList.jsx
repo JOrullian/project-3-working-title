@@ -1,10 +1,11 @@
 import { useQuery } from "@apollo/client";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import SkillCard from "../components/SkillCard";
 import { GET_SKILLS } from "../utils/queries";
 
 function SkillList() {
   const { categoryName } = useParams();
+  const navigate = useNavigate();
 
   const { loading: skillsLoading, error: skillsError, data: skillsData } = useQuery(GET_SKILLS, {
     variables: { categoryName },
@@ -21,7 +22,7 @@ function SkillList() {
           title={userSkill.name}
           text={userSkill.text}
           imgSrc={userSkill.imgSrc}
-          onClick={() => console.log(`Clicked on ${userSkill.name}`)}
+          onClick={() => navigate(`/${userSkill._id}`)}
         />
       ))}
     </div>

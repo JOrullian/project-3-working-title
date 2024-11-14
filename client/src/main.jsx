@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
-        path: "/skill",
+        path: "/:skillId",
         element: <SkillHighlightPage />,
       },
       {

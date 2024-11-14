@@ -1,7 +1,20 @@
-import BackArrow from '../assets/back-arrow.svg'
-import Settings from '../assets/settings.svg'
+import { useQuery } from '@apollo/client';
+import BackArrow from '../assets/back-arrow.svg';
+import Settings from '../assets/settings.svg';
+import { GET_SKILL_BY_ID } from "../utils/queries";
 
-export default function SkillHighlightPage(props) {
+export default function SkillHighlightPage() {
+    const { skillId } = useParams();
+
+    // Fetch the skill data using the skillId
+    const { loading, error, data } = useQuery(GET_SKILL_BY_ID, {
+        variables: { skillId },
+    });
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error loading skill data: {error.message}</p>;
+
+    // Update this return to dynamically add from the GET_SKILL_BY_ID data
     return (
         <>
             <div className="page-main-container">
