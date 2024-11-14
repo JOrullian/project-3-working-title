@@ -644,6 +644,8 @@
     width: 100%;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~Explore~~~~~~~~~~~~~~~~~~~~~~~ */
+
 .explore-header {
     height: 10%;
     width: 100%;
@@ -653,6 +655,39 @@
 }
 
 .explore-body-container {
+    height: 90%;
+    width: var(--evenWidth);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~Category~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.category-header {
+    height: 5%;
+    width: 100%;
+    width: var(--evenWidth);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.category-title-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    width: 8rem;
+    height: 100%;
+    font-size: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+.category-page-body {
     height: 90%;
     width: var(--evenWidth);
 }
