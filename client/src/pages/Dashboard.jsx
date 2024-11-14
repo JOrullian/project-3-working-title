@@ -1,4 +1,5 @@
 import Logo from '../assets/logo.svg'
+import CategoryList from '../components/CategoryList'
 import Navbar from '../components/Navbar'
 import SearchBar from '../components/SearchBar'
 
@@ -15,7 +16,7 @@ export default function Dashboard() {
                     </div>
                 </header>
                 <div className="category-swipe-container">
-                    {/* Categories component here */}
+                    <CategoryList />
                 </div>
                 <div className="promotional-container">
                     {/* Unknown promotional space.. ads? */}
@@ -27,14 +28,14 @@ export default function Dashboard() {
                         </div>
                         <div className="view-all-container">
                             view all <span className="view-all-arrow">&gt;</span>
-                        </div>  
+                        </div>
                     </header>
                     <div className="for-you-body">
                         {/* Section for recommended skills to be displayed based on users preferences/searches */}
                     </div>
                 </section>
             </div>
-            <Navbar/>
+            <Navbar />
         </>
     );
 }

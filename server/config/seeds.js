@@ -11,51 +11,51 @@ db.once('open', async () => {
 
   const categories = await Category.insertMany([
     {
-      title: "Art",
+      name: "Art",
       image: "art.svg",
     },
     {
-      title: "Technology",
+      name: "Technology",
       image: "technology.svg",
     },
     {
-      title: "Music",
+      name: "Music",
       image: "music.svg",
     },
     {
-      title: "Education",
+      name: "Education",
       image: "education.svg",
     },
     {
-      title: "Handicraft",
+      name: "Handicraft",
       image: "handicraft.svg",
     },
     {
-      title: "Cooking",
+      name: "Cooking",
       image: "cooking.svg",
     },
     {
-      title: "Photography",
+      name: "Photography",
       image: "photography.svg",
     },
     {
-      title: "Writing",
+      name: "Writing",
       image: "writing.svg",
     },
     {
-      title: "Fitness",
+      name: "Fitness",
       image: "fitness.svg",
     },
     {
-      title: "Language",
+      name: "Language",
       image: "language.svg",
     },
     {
-      title: "Fashion",
+      name: "Fashion",
       image: "fashion.svg",
     },
     {
-      title: "Other",
+      name: "Other",
       image: "other.svg",
     },
   ]);

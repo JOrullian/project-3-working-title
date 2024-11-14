@@ -1,23 +1,27 @@
 import { Link } from "react-router-dom";
 import CategoryCard from "../components/CategoryCard";
 import PropTypes from "prop-types";
+import { GET_CATEGORIES } from "../utils/queries";
+import { useQuery } from "@apollo/client";
 
-function CategoryList({ categories }) {
+function CategoryList() {
+
+  const { loading, data } = useQuery(GET_CATEGORIES);
+  const categories = data?.categories || [];
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="category-list">
       {categories.map((category) => (
-        <Link
-          key={category.id}
-          to={`/${category.title.toLowerCase()}`}
-          className="category-card-link"
-        >
-          <CategoryCard
-            key={category.id}
-            title={category.title}
-            imgSrc={category.imgSrc}
-            onClick={() => console.log(`Clicked on ${category.title}`)}
-          />
-        </Link>
+        <CategoryCard
+          key={category._id}
+          name={category.name}
+          image={category.image}
+          onClick={() => console.log(`Clicked on ${category.name}`)}
+        />
       ))}
     </div>
   );
