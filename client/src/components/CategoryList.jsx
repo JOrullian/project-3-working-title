@@ -3,10 +3,15 @@ import CategoryCard from "../components/CategoryCard";
 import PropTypes from "prop-types";
 
 function CategoryList({ categories }) {
+  console.log(categories);
   const navigate = useNavigate();
 
-  const handleCategoryClick = (categoryTitle) => {
-    const categoryName = categoryTitle.toLowerCase();
+  const handleCategoryClick = (name) => {
+    if (!name) {
+      console.error("Category name is undefined");
+      return;
+    }
+    const categoryName = name.toLowerCase();
     navigate(`/${categoryName}`);
   };
 
@@ -16,12 +21,12 @@ function CategoryList({ categories }) {
         <div
           key={category.id}
           className="category-card-link"
-          onClick={() => handleCategoryClick(category.title)}
+          onClick={() => handleCategoryClick(category.name)}
         >
           <CategoryCard
-            title={category.title}
-            imgSrc={category.imgSrc}
-            onClick={() => console.log(`Clicked on ${category.title}`)}
+            title={category.name}
+            imgSrc={category.image}
+            onClick={() => console.log(`Clicked on ${category.name}`)}
           />
         </div>
       ))}
