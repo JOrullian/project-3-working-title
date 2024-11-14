@@ -27,7 +27,9 @@ function Dashboard() {
           </div>
         </header>
         <div className="category-swipe-container">
-          <CategoryList categories={categories}/>
+          <div className="scrollable-category-list">
+            <CategoryList categories={categories} />
+          </div>
         </div>
         <div className="promotional-container">
           {/* Unknown promotional space.. ads? */}
