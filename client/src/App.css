@@ -103,9 +103,8 @@
 }
 
 .category-swipe-container {
-    height: 8rem;
+    height: 7rem;
     width: var(--evenWidth);
-    background-color: #eeeeee;
     overflow-x: auto;
     white-space: nowrap;
     -ms-overflow-style: none;
@@ -118,20 +117,34 @@
 
 .scrollable-category-list {
     display: flex;
-    gap: 1rem;
+    height: 100%;
 }
 
+.category-icon {
+    width: 80%;
+}
 
 .category-card-link {
-    display: inline-block;
+    display: flex;
+    height: 100%;
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+.card {
+    height: 100%;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .category-list {
     display: flex;
     flex-direction: row;
-    max-height: 8rem;
-    justify-content: space-between;
-    padding: 10px;
+    align-items: center;
+    height: 100%;
 }
 
 .category-title {
