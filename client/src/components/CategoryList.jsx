@@ -1,27 +1,34 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CategoryCard from "../components/CategoryCard";
 import PropTypes from "prop-types";
-import { GET_CATEGORIES } from "../utils/queries";
-import { useQuery } from "@apollo/client";
 
-function CategoryList() {
+function CategoryList({ categories }) {
+  console.log(categories);
+  const navigate = useNavigate();
 
-  const { loading, data } = useQuery(GET_CATEGORIES);
-  const categories = data?.categories || [];
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const handleCategoryClick = (name) => {
+    if (!name) {
+      console.error("Category name is undefined");
+      return;
+    }
+    const categoryName = name.toLowerCase();
+    navigate(`/category/${categoryName}`);
+  };
 
   return (
     <div className="category-list">
       {categories.map((category) => (
-        <CategoryCard
-          key={category._id}
-          name={category.name}
-          image={category.image}
-          onClick={() => console.log(`Clicked on ${category.name}`)}
-        />
+        <div
+          key={category.id}
+          className="category-card-link"
+          onClick={() => handleCategoryClick(category.name)}
+        >
+          <CategoryCard
+            title={category.name}
+            imgSrc={category.image}
+            onClick={() => console.log(`Clicked on ${category.name}`)}
+          />
+        </div>
       ))}
     </div>
   );
