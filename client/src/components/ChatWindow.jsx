@@ -2,6 +2,7 @@ import io from 'socket.io-client'
 import BackArrow from '../assets/back-arrow.svg'
 import Settings from '../assets/settings.svg'
 import ProfileImg from '../assets/profile-img.svg'
+import AppNavbar from './Navbar'
 import { useEffect, useState } from 'react'
 
 const ChatWindow = () => {
@@ -64,9 +65,7 @@ const ChatWindow = () => {
                     <button onClick={joinRoom}>Join Room</button>
                 </div>
             </div>
-            <div className='navbar'>
-                {/* Placeholder for navbar */}
-            </div>
+            <AppNavbar/>
         </>
     )
 }
