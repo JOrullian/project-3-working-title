@@ -27,6 +27,11 @@ const userSchema = new Schema({
     minlength: 5
   },
   location: {
+    type: { type: String, default: 'Point'},
+    coordinates: {
+      type: [Number], // [longitude, latitude]
+      required: true
+    }
   },
   skill: [Skill.schema],
   friends: [
