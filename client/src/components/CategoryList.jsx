@@ -1,6 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import CategoryCard from "../components/CategoryCard";
 import PropTypes from "prop-types";
+import { GET_CATEGORIES } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+
+function CategoryList() {
+
+  const { loading, data } = useQuery(GET_CATEGORIES);
+  const categories = data?.categories || [];
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
 function CategoryList({ categories }) {
   const navigate = useNavigate();

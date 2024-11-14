@@ -89,6 +89,7 @@ export const GET_ME = gql`
         category {
           _id
           name
+          image
         }
       }
     }
