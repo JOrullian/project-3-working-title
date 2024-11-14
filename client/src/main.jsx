@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
-        path: "/:skillId",
+        path: "/skill/:skillId",
         element: <SkillHighlightPage />,
       },
       {
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <Chat />,
       },
       {
-        path: "/:categoryName",
+        path: "/category/:categoryName",
         element: <CategoryPage />,
       },
       {

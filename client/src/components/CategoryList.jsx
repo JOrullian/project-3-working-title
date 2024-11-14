@@ -12,7 +12,7 @@ function CategoryList({ categories }) {
       return;
     }
     const categoryName = name.toLowerCase();
-    navigate(`/${categoryName}`);
+    navigate(`/category/${categoryName}`);
   };
 
   return (
