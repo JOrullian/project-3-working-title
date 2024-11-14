@@ -108,6 +108,20 @@
     background-color: #eeeeee;
 }
 
+.category-list {
+    display: flex;
+    flex-direction: row;
+    max-height: 8rem;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.category-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .promotional-container {
     height: 7rem;
     width: var(--evenWidth);

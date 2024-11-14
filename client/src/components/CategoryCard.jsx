@@ -1,21 +1,21 @@
 import Card from "react-bootstrap/Card";
 import PropTypes from "prop-types";
 
-function CategoryCard({ title, imgSrc, onClick }) {
+function CategoryCard({ name, image, onClick }) {
   return (
     <Card onClick={onClick} style={{ cursor: "pointer" }}>
-        <Card.Img variant="top" src={imgSrc} />
-        <Card.Body>
-          <Card.Title>{title}</Card.Title>
-        </Card.Body>
+      <Card.Img className="category-icon" variant="top" src={`/images/${image}`} />
+      <Card.Body>
+        <Card.Title className="category-title">{name}</Card.Title>
+      </Card.Body>
     </Card>
   );
 }
 
 CategoryCard.propTypes = {
-    title: PropTypes.string,
-    imgSrc: PropTypes.string,
-    onClick: PropTypes.string,
+  name: PropTypes.string,
+  image: PropTypes.string,
+  onClick: PropTypes.elementType,
 }
 
 export default CategoryCard;
