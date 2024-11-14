@@ -69,7 +69,21 @@ export const GET_NEARBY_SKILLS = gql`
 `;
 
 export const GET_SKILL_BY_ID = gql`
-`
+  query getSkillById($id: ID!) {
+    skill(id: $id) {
+      id
+      timeAvailable
+      description
+      category {
+        name
+      }
+      user {
+        firstName
+        lastName
+      }
+    }
+  }
+`;
 
 export const GET_ME = gql`
   query getMe {
