@@ -23,6 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    position: relative;
 }
 
 .nav-link {
@@ -33,9 +34,30 @@
     justify-content: center;
 }
 
+.new-skill-icon-container {
+    position: absolute;
+    height: 4rem;
+    width: 4rem;
+    background-color: var(--primary);
+    border-radius: 50%;
+    top: -1rem;
+}
+
+.new-skill-icon {
+    height: 60%;
+}
+
 .nav-icon {
     height: 40%;
     width: 100%;
+}
+
+#nav-explore {
+    margin-right: 1rem;
+}
+
+#nav-chat {
+    margin-left: 1rem;
 }
 
 .root-container {
@@ -315,7 +337,8 @@
 }
 
 .login-btn,
-.signup-btn {
+.signup-btn,
+.create-skill-btn {
     height: 3rem;
     width: 85%;
     border: none;
@@ -721,4 +744,122 @@
 .category-page-body {
     height: 90%;
     width: var(--evenWidth);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~Create Skill~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.create-skill-container {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(19deg, #1f2d33, #0F7173);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#new-skill-form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-skill-form-container {
+    height: 90%;
+    width: var(--evenWidth);
+    background-color: #ffffff;
+    border-radius: 1rem;
+}
+
+.create-skill-header {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 150%;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.create-skill-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 78%;
+    width: 90%;
+    color: var(--secondary);
+}
+
+.create-skill-input {
+    height: 2rem;
+    width: var(--evenWidth);
+    font-family: 'Poppins';
+    border: none;
+    border-bottom: 2px solid #dddddd;
+}
+
+.create-skill-input:focus {
+    outline: none;
+}
+
+.create-skill-category-selection {
+    height: 2rem;
+    width: var(--evenWidth);
+    font-family: 'Poppins';
+    border: none;
+    border-bottom: 2px solid #dddddd;
+}
+
+.create-skill-selection:focus {
+    outline: none;
+}
+
+.create-skill-footer {
+    height: 12%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-skill-desc {
+    max-height: 30%;
+    max-width: 85%;
+    height: 30%;
+    font-family: 'Poppins';
+    border: 2px solid #dddddd;
+    width: 85%;
+    border-radius: 1rem;
+    padding: .5rem;
+}
+
+.availability-container {
+    height: 40%;
+    width: var(--evenWidth);
+}
+
+.create-skill-desc:focus {
+    outline: none;
+}
+
+.availability-title {
+    font-weight: 500;
+}
+
+.date-line {
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.date-input {
+    width: 4rem;
+    margin-left: .3rem;
+    margin-right: .3rem;
 }
