@@ -12,7 +12,7 @@ const typeDefs = `
   type Skill {
     _id: ID
     name: String
-    timeAvailable: DateTime
+    timeAvailable: String
     description: String
     category: Category
     user: User
@@ -36,6 +36,7 @@ const typeDefs = `
     getSkillsByUser(userId: ID!): [Skill]
     getSkillsByCategory(categoryName: String!): [Skill]
     getSkillsByName(name: String!): [Skill]
+    getSkillById(id: ID!): Skill
     nearbySkills(latitude: Float!, longitude: Float!, radius: Int!, skillName: String!): [User]
     me: User
   }

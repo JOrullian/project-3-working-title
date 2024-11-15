@@ -1,7 +1,10 @@
 import SkillCard from "../components/SkillCard";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 function SkillList({ skills }) {
+  const navigate = useNavigate();
+
   if (!skills || skills.length === 0) {
     return <p>No skills found.</p>;
   }
@@ -13,7 +16,7 @@ function SkillList({ skills }) {
           key={userSkill._id}
           name={userSkill.name}
           description={userSkill.description}
-          onClick={() => navigate(`/${userSkill._id}`)}
+          onClick={() => navigate(`/skill/${userSkill._id}`)}
         />
       ))}
     </div>
