@@ -11,7 +11,7 @@ const skillSchema = new Schema({
         trim: true
     },
     timeAvailable: {
-        type: Date
+        type: [String]
     },
     description: {
         type: String

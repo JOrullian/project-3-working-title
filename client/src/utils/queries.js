@@ -35,8 +35,7 @@ export const GET_SKILLS_BY_CATEGORY = gql`
     skills(categoryName: $categoryName) {
       _id
       name
-      text
-      imgSrc
+      description
     }
   }
 `;
@@ -44,6 +43,17 @@ export const GET_SKILLS_BY_CATEGORY = gql`
 export const GET_SKILLS_BY_USER = gql`
   query getSkillsByUser($userId: ID!) {
     skills(userId: $userId) {
+      _id
+      name
+      text
+      imgSrc
+    }
+  }
+`;
+
+export const GET_SKILLS_BY_NAME = gql`
+  query getSkillsByName($name: String!) {
+    skills(name: $name) {
       _id
       name
       text
