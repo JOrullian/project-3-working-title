@@ -67,6 +67,7 @@ const resolvers = {
         return user;
       }
       throw new AuthenticationError("Not authenticated");
+
     },
   },
   Mutation: {

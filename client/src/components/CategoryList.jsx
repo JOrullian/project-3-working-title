@@ -3,7 +3,6 @@ import CategoryCard from "../components/CategoryCard";
 import PropTypes from "prop-types";
 
 function CategoryList({ categories }) {
-  console.log(categories);
   const navigate = useNavigate();
 
   const handleCategoryClick = (name) => {
