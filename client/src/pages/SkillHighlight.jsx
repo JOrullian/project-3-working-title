@@ -14,10 +14,6 @@ export default function SkillHighlightPage() {
     variables: { id: skillId },
   });
 
-  console.log(loading);
-  console.log(error);
-  console.log(data);
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading skill data: {error.message}</p>;
 
