@@ -55,8 +55,7 @@ export const GET_SKILLS_BY_NAME = gql`
     skills(name: $name) {
       _id
       name
-      text
-      imgSrc
+      description
     }
   }
 `;
