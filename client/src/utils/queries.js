@@ -31,19 +31,28 @@ export const GET_CATEGORIES = gql`
 `;
 
 export const GET_SKILLS_BY_CATEGORY = gql`
-  query getSkillsByCategory($categoryName: String!) {
-    skills(categoryName: $categoryName) {
+  query GetSkillsByCategory($categoryName: String!) {
+    getSkillsByCategory(categoryName: $categoryName) {
       _id
       name
-      text
-      imgSrc
+      description
     }
   }
 `;
 
 export const GET_SKILLS_BY_USER = gql`
-  query getSkillsByUser($userId: ID!) {
-    skills(userId: $userId) {
+  query GetSkillsByUser($userId: ID!) {
+    getSkillsByUser(userId: $userId) {
+      _id
+      name
+      description
+    }
+  }
+`;
+
+export const GET_SKILLS_BY_NAME = gql`
+  query getSkillsByName($name: String!) {
+    skills(name: $name) {
       _id
       name
       text

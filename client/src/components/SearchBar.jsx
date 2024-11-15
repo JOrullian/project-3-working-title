@@ -1,14 +1,30 @@
-import SearchIcon from '../assets/search-icon.svg'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import SearchIcon from "../assets/search-icon.svg";
 
 const SearchBar = () => {
-    return(
-        <>
-            <div className="searchbar">
-                <img className="searchbar-icon" src={SearchIcon}></img>
-                <input className='searchbar-input' placeholder='Search...' id='search'></input>
-            </div>
-        </>
-    )
-}
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    navigate(`/explore?search=${searchTerm}`);
+  };
+
+  return (
+    <>
+      <form onSubmit={handleSearch} className="searchbar">
+        <img className="searchbar-icon" src={SearchIcon} alt="Search Icon"></img>
+        <input
+          className="searchbar-input"
+          placeholder="Search..."
+          id="search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </form>
+    </>
+  );
+};
 
 export default SearchBar;

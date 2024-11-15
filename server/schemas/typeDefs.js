@@ -33,6 +33,10 @@ const typeDefs = `
     categories: [Category]
     user: User
     skill: [Skill]
+    getSkillsByUser(userId: ID!): [Skill]
+    getSkillsByCategory(categoryName: String!): [Skill]
+    getSkillsByName(name: String!): [Skill]
+    nearbySkills(latitude: Float!, longitude: Float!, radius: Int!, skillName: String!): [User]
     me: User
   }
 
