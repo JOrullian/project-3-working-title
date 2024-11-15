@@ -1,7 +1,7 @@
 const { User, Skill, Category } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { DateTimeResolver } = require('graphql-scalars');
-const geolib = require('geolib');
+// const geolib = require('geolib');
 
 const resolvers = {
     DateTime: DateTimeResolver,
@@ -19,31 +19,31 @@ const resolvers = {
         skill: async () => {
             return await Skill.find();
         },
-        nearbySkills: async (parent, { latitude, longitude, radius, skillName }) => {            // Fetch users with the specified skill
-            const users = await User.find({ 'skill.name': skillName });
+        // nearbySkills: async (parent, { latitude, longitude, radius, skillName }) => {            // Fetch users with the specified skill
+        //     const users = await User.find({ 'skill.name': skillName });
 
-            // Filter users based on proximity
-            return users.filter(user => {
-                const userLocation = {
-                    latitude: user.location.coordinates[1],
-                    longitude: user.location.coordinates[0]
-                };
+        //     // Filter users based on proximity
+        //     return users.filter(user => {
+        //         const userLocation = {
+        //             latitude: user.location.coordinates[1],
+        //             longitude: user.location.coordinates[0]
+        //         };
 
-                const distance = geolib.getDistance(
-                    { latitude, longitude },
-                    userLocation
-                );
+        //         const distance = geolib.getDistance(
+        //             { latitude, longitude },
+        //             userLocation
+        //         );
 
-                // Return users within the specified radius
-                return distance <= radius;
-            })
-        },
+        //         // Return users within the specified radius
+        //         return distance <= radius;
+        //     })
+        // },
         me: async (parent, args, context) => {
             if (context.user) {
-                const user = await User.findById(context.user._id);
+                const user = await User.findById(context.user._id).populate('skill');
                 return user;
             }
-            throw new AuthenticationError("Not authenticated");
+            throw AuthenticationError;
         },
     },
     Mutation: {

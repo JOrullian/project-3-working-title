@@ -26,20 +26,20 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  location: {
-    type: { type: String, default: 'Point'},
-    coordinates: {
-      type: [Number], // [longitude, latitude]
-      required: true
-    }
-  },
+  // location: {
+  //   type: { type: String, default: 'Point'},
+  //   coordinates: {
+  //     type: [Number], // [longitude, latitude]
+  //     required: true
+  //   }
+  // },
   skill: [Skill.schema],
   friends: [
     {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+      type: Schema.Types.ObjectId,
+      ref: 'User'
     }
-]
+  ]
 });
 
 // set up pre-save middleware to create password
