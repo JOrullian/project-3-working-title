@@ -21,7 +21,7 @@ export default function Profile() {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
-        return false;
+        return <Navigate to="/login" />;
     }
     if (loading) {
         return <div>Loading...</div>;
@@ -32,13 +32,13 @@ export default function Profile() {
             <div className="page-main-container">
                 <header className="profile-header">
                     <div className="back-arrow-container">
-                        <img className='profile-backarrow' src={BackArrow}></img>
+                        {/* <img className='profile-backarrow' src={BackArrow}></img> */}
                     </div>
                     <div className="profile-title-container">
                         <h1>Profile</h1>
                     </div>
                     <div className="settings-icon-container">
-                        <img className='settings-icon' src={Settings}></img>
+                        {/* <img className='settings-icon' src={Settings}></img> */}
                     </div>
                 </header>
                 <div className="profile-user-info-container">
