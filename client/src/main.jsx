@@ -8,8 +8,9 @@ import Signup from "./pages/Signup.jsx";
 import Profile from "./pages/Profile.jsx";
 import SkillHighlightPage from "./pages/SkillHighlight.jsx";
 import Chat from "./pages/Chat.jsx";
-import CategoryPage from "./pages/CategoryPage.jsx"
-import Explore from './pages/Explore.jsx'
+import CategoryPage from "./pages/CategoryPage.jsx";
+import Explore from './pages/Explore.jsx';
+import CreateSkill from './pages/CreateSkill.jsx'
 
 import "./index.css";
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: '/explore',
         element: <Explore />
+      },
+      {
+        path: '/create-skill',
+        element: <CreateSkill />
       }
     ],
   },

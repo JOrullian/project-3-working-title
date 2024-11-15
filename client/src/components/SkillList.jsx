@@ -1,22 +1,26 @@
 import { useQuery } from "@apollo/client";
 import { useParams, useNavigate } from "react-router-dom";
 import SkillCard from "../components/SkillCard";
-import { GET_SKILLS } from "../utils/queries";
+import PropTypes from "prop-types";
+import { GET_SKILLS_BY_CATEGORY, GET_SKILLS_BY_USER } from "../utils/queries";
 
-function SkillList() {
-  const { categoryName } = useParams();
+function SkillList({ type }) {
+  const { categoryName, userId } = useParams();
   const navigate = useNavigate();
 
-  const { loading: skillsLoading, error: skillsError, data: skillsData } = useQuery(GET_SKILLS, {
-    variables: { categoryName },
-  });
+  const { loading, error, data } = useQuery(
+    type === "category" ? GET_SKILLS_BY_CATEGORY : GET_SKILLS_BY_USER,
+    {
+      variables: type === "category" ? { categoryName } : { userId },
+    }
+  );
 
-  if (skillsLoading) return <p>Loading...</p>;
-  if (skillsError) return <p>Error loading skills: {skillsError.message}</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading skills: {error.message}</p>;
 
   return (
     <div className="skill-list">
-      {skillsData?.skill?.map((userSkill) => (
+      {data?.skill?.map((userSkill) => (
         <SkillCard
           key={userSkill._id}
           title={userSkill.name}
@@ -28,5 +32,9 @@ function SkillList() {
     </div>
   );
 }
+
+SkillList.propTypes = {
+  type: PropTypes.string,
+};
 
 export default SkillList;
