@@ -96,21 +96,21 @@ export const GET_SKILL_BY_ID = gql`
 `;
 
 export const GET_ME = gql`
-  query getMe {
-    me {
-      _id
-      email
-      firstName
-      lastName
-      skill {
-        category {
-          _id
-          name
-        }
-        description
+query getMe {
+  me {
+    _id
+    email
+    firstName
+    lastName
+    skill {
+      category {
+        _id
         name
-        timeAvailable
       }
+      description
+      name
+      timeAvailable
     }
   }
+}
 `;
