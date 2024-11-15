@@ -52,7 +52,7 @@ export const GET_SKILLS_BY_USER = gql`
 
 export const GET_SKILLS_BY_NAME = gql`
   query getSkillsByName($name: String!) {
-    skills(name: $name) {
+    getSkillsByName(name: $name) {
       _id
       name
       description
@@ -103,26 +103,21 @@ export const GET_SKILL_BY_ID = gql`
 `;
 
 export const GET_ME = gql`
-  query getMe {
-    me {
-      _id
-      firstName
-      lastName
-      email
-      location {
-        latitude
-        longitude
-      }
-      skill {
+query getMe {
+  me {
+    _id
+    email
+    firstName
+    lastName
+    skill {
+      category {
         _id
         name
-        image
-        category {
-          _id
-          name
-          image
-        }
       }
+      description
+      name
+      timeAvailable
     }
   }
+}
 `;

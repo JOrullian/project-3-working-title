@@ -8,6 +8,7 @@ const SearchBar = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
+    console.log("Navigating to:", `/explore?search=${searchTerm}`);
     navigate(`/explore?search=${searchTerm}`);
   };
 

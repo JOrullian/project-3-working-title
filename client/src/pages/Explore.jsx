@@ -9,32 +9,35 @@ export default function Explore() {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const searchTerm = searchParams.get('search') || '';
-
+  
     const { loading, error, data } = useQuery(GET_SKILLS_BY_NAME, {
-        variables: { name: searchTerm },
-        skip: !searchTerm,
+      variables: { name: searchTerm },
+      skip: !searchTerm, // Skip query if no search term
     });
-
+  
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error loading skills: {error.message}</p>;
-    
+  
+    const skills = data?.getSkillsByName || [];
+  
     return (
-        <>
-            <div className="page-main-container">
-                <header className="explore-header">
-                    <div className="searchbar-container">
-                        <SearchBar />
-                    </div>
-                </header>
-                <section className="explore-body-container">
-                    {searchTerm ? (
-                        <SkillList skills={data.skills} />
-                    ) : (
-                        <p>Enter a search term to find skills.</p>
-                    )}
-                </section>
+      <>
+        <div className="page-main-container">
+          <header className="explore-header">
+            <div className="searchbar-container">
+              <SearchBar />
             </div>
-            <AppNavbar/>
-        </>
-    )
-}
+          </header>
+          <section className="explore-body-container">
+            {searchTerm ? (
+              <SkillList skills={skills} />
+            ) : (
+              <p>Enter a search term to find skills.</p>
+            )}
+          </section>
+        </div>
+        <AppNavbar />
+      </>
+    );
+  }
+  
