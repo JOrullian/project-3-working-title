@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import AppNavbar from "../components/Navbar";
 import BackArrow from "../assets/back-arrow.svg";
+import SkillList from "../components/SkillList";
 
 export default function CategoryPage() {
   const { categoryName } = useParams();
@@ -36,6 +37,7 @@ export default function CategoryPage() {
         </header>
         <div className="category-page-body"></div>
       </div>
+      <SkillList type="category" />
       <AppNavbar />
     </>
   );
