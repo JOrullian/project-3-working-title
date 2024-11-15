@@ -32,13 +32,13 @@ function SkillList({ type }) {
 
   return (
     <div className="skill-list">
-      {data?.skills?.map((userSkill) => (
+      {data?.getSkillsByCategory?.map((userSkill) => (
         <SkillCard
           key={userSkill._id}
           name={userSkill.name}
-          // text={userSkill.text}
+          description={userSkill.description}
           // imgSrc={userSkill.imgSrc}
-          // onClick={() => navigate(`/${userSkill._id}`)}
+          onClick={() => navigate(`/${userSkill._id}`)}
         />
       ))}
     </div>

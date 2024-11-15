@@ -31,8 +31,8 @@ export const GET_CATEGORIES = gql`
 `;
 
 export const GET_SKILLS_BY_CATEGORY = gql`
-  query getSkillsByCategory($categoryName: String!) {
-    skills(categoryName: $categoryName) {
+  query GetSkillsByCategory($categoryName: String!) {
+    getSkillsByCategory(categoryName: $categoryName) {
       _id
       name
       description
@@ -41,12 +41,11 @@ export const GET_SKILLS_BY_CATEGORY = gql`
 `;
 
 export const GET_SKILLS_BY_USER = gql`
-  query getSkillsByUser($userId: ID!) {
-    skills(userId: $userId) {
+  query GetSkillsByUser($userId: ID!) {
+    getSkillsByUser(userId: $userId) {
       _id
       name
-      text
-      imgSrc
+      description
     }
   }
 `;

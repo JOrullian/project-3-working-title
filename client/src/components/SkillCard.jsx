@@ -1,23 +1,23 @@
 import Card from "react-bootstrap/Card";
 import PropTypes from "prop-types";
 
-function SkillCard({ title, text, imgSrc, onClick }) {
+function SkillCard({ name, description, onClick }) {
   return (
     <Card onClick={onClick} style={{ cursor: "pointer" }}>
-        <Card.Img variant="top" src={imgSrc} />
+        {/* <Card.Img variant="top" src={imgSrc} /> */}
         <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>{text}</Card.Text>
+          <Card.Title>{name}</Card.Title>
+          <Card.Text>{description}</Card.Text>
         </Card.Body>
     </Card>
   );
 }
 
 SkillCard.propTypes = {
-    title: PropTypes.string,
-    text: PropTypes.string,
-    imgSrc: PropTypes.string,
-    onClick: PropTypes.string,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    // imgSrc: PropTypes.string,
+    onClick: PropTypes.elementType,
 }
 
 export default SkillCard;
