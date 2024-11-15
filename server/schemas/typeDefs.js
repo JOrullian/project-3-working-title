@@ -6,9 +6,7 @@ const typeDefs = `
     firstName: String
     lastName: String
     email: String
-    location: String
     skill: [Skill]
-    friends: [User]
   }
 
   type Skill {
@@ -35,7 +33,6 @@ const typeDefs = `
     categories: [Category]
     user: User
     skill: [Skill]
-    nearbySkills(latitude: Float!, longitude: Float!, radius: Int!, skillName: String!): [User]
     me: User
   }
 
@@ -48,3 +45,5 @@ const typeDefs = `
 `;
 
 module.exports = typeDefs
+
+// nearbySkills(latitude: Float!, longitude: Float!, radius: Int!, skillName: String!): [User]

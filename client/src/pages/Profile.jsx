@@ -3,8 +3,30 @@ import Settings from '../assets/settings.svg'
 import ProfileImg from '../assets/profile-img.svg'
 import RatingStar from '../assets/rating-star.svg'
 import AppNavbar from "../components/Navbar"
+import { useQuery } from '@apollo/client'
+
+import Auth from '../utils/auth'
+
+import { GET_ME } from '../utils/queries'
+
+
 
 export default function Profile() {
+
+    const { loading, data } = useQuery(GET_ME);
+    const user = data?.me
+
+    console.log(user)
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+        return false;
+    }
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <>
             <div className="page-main-container">
@@ -25,10 +47,10 @@ export default function Profile() {
                             <img className='profile-img' src={ProfileImg}></img>
                         </div>
                     </div>
-                    <h2 className='profile-name'>Drew Easter</h2>
-                    <h3 className='profile-location'>Dallas, TX</h3>
+                    <h2 className='profile-name'>{user.firstName} {user.lastName}</h2>
+                    <h3 className='profile-email'>{user.email}</h3>
                 </div>
-                <div className="profile-social-info-container">
+                {/* <div className="profile-social-info-container">
                     <div className='profile-ratings-container'>
                         <img className='rating-star-icon' src={RatingStar}></img>
                         <img className='rating-star-icon' src={RatingStar}></img>
@@ -39,10 +61,10 @@ export default function Profile() {
                     <div className='profile-friends-container'>
                         <h3 className='profile-friends-title'><span id='friends-number'>30</span> friends</h3>
                     </div>
-                </div>
+                </div> */}
                 <div className="profile-user-skills-container">
                     <div className='user-skill-line'>
-                        {/* skill information, onClick, take user to full page skill section */}
+                        {user.skill}
                     </div>
                     <div className='user-skills-div-bar'></div>
                     <div className='user-skill-line'>
@@ -51,7 +73,7 @@ export default function Profile() {
                     <div className='user-skills-div-bar'></div>
                 </div>
             </div>
-            <AppNavbar/>
+            <AppNavbar />
         </>
     )
 };
