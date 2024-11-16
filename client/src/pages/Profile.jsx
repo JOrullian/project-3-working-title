@@ -49,7 +49,7 @@ export default function Profile() {
                     <div className="profile-title-container">
                         <h1>Profile</h1>
                     </div>
-                    <div className="settings-icon-container">
+                    <div className="logout-container">
                         <button className='logout-button' onClick={Auth.logout}>Logout</button>
                     </div>
                 </header>

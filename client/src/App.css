@@ -393,9 +393,9 @@
     color: var(--secondary);
 }
 
-.settings-icon-container {
+.logout-container {
     height: 100%;
-    width: 3rem;
+    width: 5rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -518,6 +518,7 @@
     background-color: #d88b8b;
     border-radius: 25px;
     font-size: 18px;
+    font-style: italic;
     text-align: center;
     border: none;
     height: 50px;
