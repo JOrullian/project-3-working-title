@@ -1,8 +1,19 @@
 import { useEffect } from "react"
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_CATEGORIES } from "../utils/queries";
+import { ADD_SKILL } from "../utils/mutations";
 
 export default function CreateSkill() {
 
-    
+    const { loading, data } = useQuery(GET_CATEGORIES);
+    const categories = data?.categories || []
+
+    console.log(categories)
+
+    const categoryNames = categories.map((categoryName) => categoryName.name)
+    console.log(categoryNames)
+
+    const [createSkill, { error }] = useMutation(ADD_SKILL);
 
     return (
         <>
@@ -14,7 +25,10 @@ export default function CreateSkill() {
                         </header>
                         <div className="create-skill-body">
                             <input id="skill-name" type="text" className="create-skill-input" placeholder="Skill name..." required></input>
-                            <select id="skill-category" className="create-skill-category-selection" required></select>
+                            <select id="skill-category" className="create-skill-category-selection" required>
+                                <option value="" selected></option>
+                                {categoryNames.map((categoryName) => <option>{categoryName}</option>)}
+                            </select>
                             <textarea id="skill-description" className="create-skill-desc" placeholder="Skill description..." required></textarea>
                             <div className="availability-container">
                                 <h2 className="availability-title">Availability</h2>
