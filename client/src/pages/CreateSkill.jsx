@@ -2,7 +2,7 @@ import { useState, userParams } from "react"
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_CATEGORIES } from "../utils/queries";
 import { ADD_SKILL } from "../utils/mutations";
-import { Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import Auth from "../utils/auth";
 
@@ -11,11 +11,17 @@ export default function CreateSkill() {
     const [descriptionText, setDescriptionText] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('')
 
-    const { loading, data } = useQuery(GET_CATEGORIES);
+    const { data } = useQuery(GET_CATEGORIES);
     const categories = data?.categories || []
-    const categoryNames = categories.map((categoryName) => categoryName.name)
 
     const [createSkill, { error }] = useMutation(ADD_SKILL);
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const navigate = useNavigate()
+    if (!token) {
+        localStorage.removeItem('id_token');
+        navigate('/login')
+    }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -33,13 +39,15 @@ export default function CreateSkill() {
                     user: Auth.getProfile().data._id
                 },
             });
-
             console.log(data)
 
-            return <Navigate to="/profile" />;
+            navigate('/profile')
 
         } catch (err) {
             console.error(err);
+            console.error('Full error:', err);
+            console.error('GraphQL errors:', err.graphQLErrors);
+            console.error('Network error:', err.networkError);
         }
     };
 
@@ -67,26 +75,38 @@ export default function CreateSkill() {
                             <h1>Create a new skill!</h1>
                         </header>
                         <div className="create-skill-body">
-                            <input id="skill-name" type="text" className="create-skill-input" placeholder="Skill name..."
+                            <input
+                                id="skill-name" type="text" className="create-skill-input" placeholder="Skill name..."
                                 value={skillnameText}
                                 required
                                 onChange={handleNameChange}></input>
-                            <select id="skill-category" className="create-skill-category-selection" required defaultValue=""
-                                onChange={handleCategoryChange}>
-                                <option></option>
-                                {categoryNames.map((categoryName, index) => <option key={index} value={categoryName}>{categoryName}</option>)}
+                            <select
+                                id="skill-category" className="create-skill-category-selection"
+                                value={selectedCategory}
+                                onChange={handleCategoryChange}
+                                required >
+                                <option value="">Select a Category</option>
+                                {categories.map((category, index) => <option key={index} value={category._id}>{category.name}</option>)}
                             </select>
-                            <textarea name="description-field" id="skill-description" className="create-skill-desc" placeholder="Skill description..."
+                            <textarea
+                                name="description-field" id="skill-description" className="create-skill-desc" placeholder="Skill description..."
                                 value={descriptionText}
                                 onChange={handleDescriptionChange}
                                 required>
                             </textarea>
-                            <div className="availability-container">
+                            <div
+                                className="availability-container">
                                 <h2 className="availability-title">Availability</h2>
-                                <div className="date-line">
-                                    <input type="checkbox" id="sunday"></input>
+                                <div
+                                    className="date-line">
+                                    <input
+                                        type="checkbox"
+                                        id="sunday"></input>
                                     <h3>Sunday:</h3>
-                                    <input className="date-input" id="sunday-start-time" type="time"></input> - <input className="date-input" id="sunday-end-time" type="time"></input>
+                                    <input
+                                        className="date-input" id="sunday-start-time"
+                                        type="time"></input> - <input className="date-input" id="sunday-end-time"
+                                            type="time"></input>
                                 </div>
                                 <div className="date-line">
                                     <input type="checkbox" id="monday"></input>

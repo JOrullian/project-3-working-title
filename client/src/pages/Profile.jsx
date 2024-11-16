@@ -3,24 +3,24 @@ import Settings from '../assets/settings.svg'
 import ProfileImg from '../assets/profile-img.svg'
 import RatingStar from '../assets/rating-star.svg'
 import AppNavbar from "../components/Navbar"
+import SkillList from '../components/SkillList'
 import { useQuery } from '@apollo/client'
-import { Navigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 import Auth from '../utils/auth'
 
-import { GET_ME } from '../utils/queries'
+import { GET_ME, GET_SKILLS_BY_USER } from '../utils/queries'
 
 
 
 export default function Profile() {
-
-    const { loading, data } = useQuery(GET_ME);
+    const navigate = useNavigate()
+    const { loading, data } = useQuery(GET_ME, GET_SKILLS_BY_USER);
     const user = data?.me
 
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
-        return <Navigate to="/login" />;
+        navigate('/login')
     }
     if (loading) {
         return <div>Loading...</div>;
@@ -64,10 +64,7 @@ export default function Profile() {
                 </div> */}
                 <div className="profile-user-skills-container">
                     <div className='user-skill-line'>
-                    </div>
-                    <div className='user-skills-div-bar'></div>
-                    <div className='user-skill-line'>
-                        {/* skill information, onClick, take user to full page skill section */}
+                        <SkillList skills={user.skills} />
                     </div>
                     <div className='user-skills-div-bar'></div>
                 </div>

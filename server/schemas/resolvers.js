@@ -92,9 +92,10 @@ const resolvers = {
           name,
           timeAvailable,
           description,
-          category: category.name,
+          category,
           user: context.user._id
         });
+
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { skill: skill._id } }

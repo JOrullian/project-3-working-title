@@ -20,6 +20,11 @@ const skillSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Category',
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 });
 
 
