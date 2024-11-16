@@ -52,11 +52,10 @@ export const GET_SKILLS_BY_USER = gql`
 
 export const GET_SKILLS_BY_NAME = gql`
   query getSkillsByName($name: String!) {
-    skills(name: $name) {
+    getSkillsByName(name: $name) {
       _id
       name
-      text
-      imgSrc
+      description
     }
   }
 `;
@@ -87,18 +86,11 @@ export const GET_NEARBY_SKILLS = gql`
 `;
 
 export const GET_SKILL_BY_ID = gql`
-  query getSkillById($id: ID!) {
-    skill(id: $id) {
-      id
-      timeAvailable
+  query GetSkillById($id: ID!) {
+    getSkillById(id: $id) {
+      _id
+      name
       description
-      category {
-        name
-      }
-      user {
-        firstName
-        lastName
-      }
     }
   }
 `;

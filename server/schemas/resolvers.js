@@ -36,7 +36,14 @@ const resolvers = {
       return await Skill.find({ category: category._id });
     },
     getSkillsByName: async (parent, { name }) => {
-      return await Skill.find({ name: { $regex: name, $options: "i" } }); // case-insensitive search
+      console.log("Searching for skills with name:", name);
+      return await Skill.find({ name: { $regex: name, $options: "i" } }); // Case-insensitive search
+    },    
+    getSkillById: async (parent, { id }) => {
+      console.log("Fetching skill with id:", id);
+      const skill = await Skill.findById(id);
+      console.log("Skill found:", skill);
+      return skill;
     },
     nearbySkills: async (
       parent,
