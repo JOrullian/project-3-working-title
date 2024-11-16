@@ -4,6 +4,7 @@ import ProfileImg from '../assets/profile-img.svg'
 import RatingStar from '../assets/rating-star.svg'
 import AppNavbar from "../components/Navbar"
 import { useQuery } from '@apollo/client'
+import { Navigate } from 'react-router-dom';
 
 import Auth from '../utils/auth'
 
