@@ -16,8 +16,12 @@ export default function CreateSkill() {
 
     const [createSkill, { error }] = useMutation(ADD_SKILL);
 
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
     const navigate = useNavigate()
+    const refreshPage = () => {
+        navigate(0);
+    }
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
         localStorage.removeItem('id_token');
         navigate('/login')
@@ -42,6 +46,8 @@ export default function CreateSkill() {
             console.log(data)
 
             navigate('/profile')
+            refreshPage()
+
 
         } catch (err) {
             console.error(err);
