@@ -17,8 +17,6 @@ export default function Profile() {
     const { loading, data } = useQuery(GET_ME);
     const user = data?.me
 
-    console.log(user)
-
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -50,6 +48,7 @@ export default function Profile() {
                     </div>
                     <h2 className='profile-name'>{user.firstName} {user.lastName}</h2>
                     <h3 className='profile-email'>{user.email}</h3>
+                    <button className='logout-button' onClick={Auth.logout}>Logout</button>
                 </div>
                 {/* <div className="profile-social-info-container">
                     <div className='profile-ratings-container'>
@@ -65,7 +64,6 @@ export default function Profile() {
                 </div> */}
                 <div className="profile-user-skills-container">
                     <div className='user-skill-line'>
-                        {user.skill}
                     </div>
                     <div className='user-skills-div-bar'></div>
                     <div className='user-skill-line'>

@@ -6,10 +6,20 @@ import Logo from "../assets/logo.svg";
 import CategoryList from "../components/CategoryList";
 import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
+import { Navigate } from 'react-router-dom';
+
+import Auth from '../utils/auth'
 
 function Dashboard() {
   const { loading, error, data } = useQuery(GET_CATEGORIES);
 
+
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+  if (!token) {
+    localStorage.removeItem('id_token');
+    return <Navigate to="/login" />;
+  }
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading categories: {error.message}</p>;
 

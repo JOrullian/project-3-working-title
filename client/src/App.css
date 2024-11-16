@@ -514,6 +514,17 @@
     margin-bottom: .2rem;
 }
 
+.logout-button {
+    background-color: #d88b8b;
+    border-radius: 25px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    height: 50px;
+    width: 80px;
+    padding: 5px;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~Skill Highlight~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .skill-header {
