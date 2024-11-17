@@ -3,6 +3,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { GET_CATEGORIES } from "../utils/queries";
 import { ADD_SKILL } from "../utils/mutations";
 import { useNavigate } from "react-router-dom"
+import BackArrow from "../assets/back-arrow.svg"
 
 import Auth from "../utils/auth";
 
@@ -30,7 +31,7 @@ export default function CreateSkill() {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(checkedDays)
+        // console.log(checkedDays)
 
         try {
             const { data } = await createSkill({
@@ -111,6 +112,12 @@ export default function CreateSkill() {
                 <div className="create-skill-form-container">
                     <form id="new-skill-form" onSubmit={handleFormSubmit}>
                         <header className="create-skill-header">
+                            <img
+                                className="create-skill-backarrow"
+                                src={BackArrow}
+                                alt="Back"
+                                onClick={() => navigate(-1)}
+                            />
                             <h1>Create a new skill!</h1>
                         </header>
                         <div className="create-skill-body">
