@@ -1,4 +1,4 @@
-import { useState, userParams } from "react"
+import { useState, useEffect } from "react"
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_CATEGORIES } from "../utils/queries";
 import { ADD_SKILL } from "../utils/mutations";
@@ -10,6 +10,7 @@ export default function CreateSkill() {
     const [skillnameText, setSkillnameText] = useState('')
     const [descriptionText, setDescriptionText] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('')
+    const [checkedDays, setCheckedDays] = useState('')
 
     const { data } = useQuery(GET_CATEGORIES);
     const categories = data?.categories || []
@@ -29,10 +30,7 @@ export default function CreateSkill() {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
-        console.log(selectedCategory)
-        console.log(skillnameText)
-        console.log(descriptionText)
+        console.log(checkedDays)
 
         try {
             const { data } = await createSkill({
@@ -40,20 +38,16 @@ export default function CreateSkill() {
                     name: skillnameText,
                     description: descriptionText,
                     category: selectedCategory,
+                    timeAvailable: JSON.stringify(Object.keys(checkedDays)),
                     user: Auth.getProfile().data._id
                 },
             });
-            console.log(data)
 
             navigate('/profile')
             refreshPage()
 
-
         } catch (err) {
             console.error(err);
-            console.error('Full error:', err);
-            console.error('GraphQL errors:', err.graphQLErrors);
-            console.error('Network error:', err.networkError);
         }
     };
 
@@ -71,6 +65,45 @@ export default function CreateSkill() {
         const { value } = event.target
         setSkillnameText(value)
     };
+
+    const handleCheckedChange = (event) => {
+        setCheckedDays({ ...checkedDays, [event.target.name]: event.target.checked });
+    }
+
+    useEffect(() => {
+        console.log("checkedDays", checkedDays);
+    }, [checkedDays]);
+
+    const checkboxes = [
+        {
+            name: 'Sunday',
+            value: 'Sunday'
+        },
+        {
+            name: 'Monday',
+            value: 'Monday'
+        },
+        {
+            name: 'Tuesday',
+            value: 'Tuesday'
+        },
+        {
+            name: 'Wednesday',
+            value: 'Wednesday'
+        },
+        {
+            name: 'Thursday',
+            value: 'Thursday'
+        },
+        {
+            name: 'Friday',
+            value: 'Friday'
+        },
+        {
+            name: 'Saturday',
+            value: 'Saturday'
+        },
+    ]
 
     return (
         <>
@@ -103,47 +136,12 @@ export default function CreateSkill() {
                             <div
                                 className="availability-container">
                                 <h2 className="availability-title">Availability</h2>
-                                <div
-                                    className="date-line">
-                                    <input
-                                        type="checkbox"
-                                        id="sunday"></input>
-                                    <h3>Sunday:</h3>
-                                    <input
-                                        className="date-input" id="sunday-start-time"
-                                        type="time"></input> - <input className="date-input" id="sunday-end-time"
-                                            type="time"></input>
-                                </div>
-                                <div className="date-line">
-                                    <input type="checkbox" id="monday"></input>
-                                    <h3>Monday:</h3>
-                                    <input className="date-input" id="monday-start-time" type="time"></input> - <input className="date-input" id="monday-end-time" type="time"></input>
-                                </div>
-                                <div className="date-line">
-                                    <input type="checkbox" id="tuesday"></input>
-                                    <h3>Tuesday:</h3>
-                                    <input className="date-input" id="tuesday-start-time" type="time"></input> - <input className="date-input" id="tuesday-end-time" type="time"></input>
-                                </div>
-                                <div className="date-line">
-                                    <input type="checkbox" id="wednesday"></input>
-                                    <h3>Wednesday:</h3>
-                                    <input className="date-input" id="wednesday-start-time" type="time"></input> - <input className="date-input" id="wednesday-end-time" type="time"></input>
-                                </div>
-                                <div className="date-line">
-                                    <input type="checkbox" id="thursday"></input>
-                                    <h3>Thursday:</h3>
-                                    <input className="date-input" id="thursday-start-time" type="time"></input> - <input className="date-input" id="thursday-end-time" type="time"></input>
-                                </div>
-                                <div className="date-line">
-                                    <input type="checkbox" id="friday"></input>
-                                    <h3>Friday:</h3>
-                                    <input className="date-input" id="friday-start-time" type="time"></input> - <input className="date-input" id="friday-end-time" type="time"></input>
-                                </div>
-                                <div className="date-line">
-                                    <input type="checkbox" id="saturday"></input>
-                                    <h3>Saturday:</h3>
-                                    <input className="date-input" id="saturday-start-time" type="time"></input> - <input className="date-input" id="saturday-end-time" type="time"></input>
-                                </div>
+                                {checkboxes.map((day, index) => (
+                                    <div className="date-line" key={index}>
+                                        <input type="checkbox" name={day.value} onChange={handleCheckedChange}></input>
+                                        <h3>{day.name}</h3>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                         <footer className="create-skill-footer">
