@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function SkillCard({ name, description, onClick }) {
   return (
     <Card onClick={onClick} style={{ cursor: "pointer" }}>
-        {/* <Card.Img variant="top" src={imgSrc} /> */}
+        {/* <Card.Img variant="top" src={image} /> */}
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{description}</Card.Text>
