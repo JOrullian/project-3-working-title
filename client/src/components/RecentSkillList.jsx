@@ -1,18 +1,24 @@
+import SkillCard from "../components/SkillCard";
+import { useNavigate } from "react-router-dom";
+
 export default function RecentSkillList() {
+  const navigate = useNavigate();
   const recentSkills = JSON.parse(localStorage.getItem("recentSkills")) || [];
+
+  if (recentSkills.length === 0) {
+    return <p>No recent skills viewed.</p>;
+  }
 
   return (
     <div className="recent-skill-list">
-      {recentSkills.length === 0 ? (
-        <p>No recent skills viewed.</p>
-      ) : (
-        recentSkills.map((skill) => (
-          <div key={skill.id} className="recent-skill-card">
-            <h4>{skill.name}</h4>
-            <p>{skill.category}</p>
-          </div>
-        ))
-      )}
+      {recentSkills.map((skill) => (
+        <SkillCard
+          key={skill.id}
+          name={skill.name}
+          description={skill.description}
+          onClick={() => navigate(`/skill/${skill.id}`)}
+        />
+      ))}
     </div>
   );
 }
