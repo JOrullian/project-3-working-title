@@ -53,7 +53,7 @@ query GetSkillsByCategory($categoryName: String!) {
 `;
 
 export const GET_SKILLS_BY_USER = gql`
-query Query($userId: ID!) {
+query GetSkillsByUser($userId: ID!) {
   getSkillsByUser(userId: $userId) {
     _id
     category {
@@ -124,11 +124,23 @@ export const GET_NEARBY_SKILLS = gql`
 export const GET_SKILL_BY_ID = gql`
   query GetSkillById($id: ID!) {
     getSkillById(id: $id) {
+    _id
+    category {
       _id
+      image
       name
-      description
+    }
+    description
+    name
+    timeAvailable
+    user {
+      _id
+      email
+      firstName
+      lastName
     }
   }
+}
 `;
 
 export const GET_ME = gql`

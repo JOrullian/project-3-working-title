@@ -17,6 +17,7 @@ function SkillList({ skills }) {
           name={userSkill.name}
           description={userSkill.description}
           onClick={() => navigate(`/skill/${userSkill._id}`)}
+          image={userSkill.category.image}
         />
       ))}
     </div>
