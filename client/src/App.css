@@ -185,7 +185,7 @@
 .promotional-container {
     height: 7rem; /* Adjust height as needed */
     width: var(--evenWidth);
-    background-image: url('../public/logo.svg'); /* Replace with your image path */
+    background-image: url('/logo.svg'); /* Replace with your image path */
     background-repeat: repeat-x; /* Repeat horizontally */
     background-color: var(--primary);
     border-radius: 1rem;
@@ -221,7 +221,7 @@
 
 .for-you-title-container {
     height: 80%;
-    width: 5rem;
+    width: 10rem;
     background-color: #1f2d33;
     display: flex;
     align-items: center;
@@ -238,7 +238,6 @@
 .for-you-body {
     height: 85%;
     width: 100%;
-    background-color: #eeeeee;
 }
 
 .view-all-container {
@@ -932,4 +931,28 @@
     width: 4rem;
     margin-left: .3rem;
     margin-right: .3rem;
+}
+
+.recent-skill-list {
+    height: 100%;
+    width: 100%;
+}
+
+.skill-card-container {
+    height: 4rem;
+    width: 100%;
+}
+
+.skill-card-body {
+    width: 100%;
+}
+
+.skill-card-title {
+    font-weight: 500;
+    margin-bottom: .2rem;
+}
+
+.skill-card-desc {
+    color: #8f8f8f;
+    font-size: 80%;
 }

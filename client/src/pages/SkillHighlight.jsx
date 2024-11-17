@@ -90,9 +90,7 @@ export default function SkillHighlightPage() {
           <button className="skill-book-btn">Send message</button>
         </footer>
       </div>
-      <div className="navbar">
-        <AppNavbar />
-      </div>
+      <AppNavbar />
     </>
   );
 }
