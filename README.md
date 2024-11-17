@@ -8,7 +8,11 @@ There are many skill sharing applications on the market, but all of them focus o
 
 The goal of Shift is to improve connectivity between people and let the users step outside of mainstream goods-for-funds transactions.
 
-## Features and Functionality
+## Pages and Functionality
+
+1. Dashboard
+
+    
 
 ## Usage
 
