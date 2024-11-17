@@ -33,7 +33,7 @@ export default function Profile() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error loading profile data: {error.message}</p>;
 
-    // const skills = skillData.getSkillsByUser
+    const skills = skillData.getSkillsByUser
     // console.log(skills)
 
     return (
@@ -73,7 +73,7 @@ export default function Profile() {
                     </div>
                 </div> */}
                 <div className="profile-user-skills-container">
-                    {skills.map(skill => (
+                    {skills.length > 0 ? skills.map(skill => (
                         <div className='user-skill-line'>
                             <div key={skill._id}>
                                 <h3>{skill.name}</h3>
@@ -82,7 +82,9 @@ export default function Profile() {
                                 <p>Availability: {(skill.timeAvailable).replace('","', ', ').replace('["', '').replace('"]', '')} </p>
                             </div>
                         </div>
-                    ))}
+                    )) :
+                        <div>No skills added yet!</div>
+                    }
                     <div className='user-skills-div-bar'></div>
                 </div>
             </div>
