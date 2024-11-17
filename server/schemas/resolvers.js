@@ -17,7 +17,7 @@ const resolvers = {
       throw AuthenticationError;
     },
     skill: async () => {
-      return await Skill.find();
+      return await Skill.find().populate('category').populate('user');
     },
     getSkillsByUser: async (parent, { userId }) => {
       return await Skill.find({ user: userId });
