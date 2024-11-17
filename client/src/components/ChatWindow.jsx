@@ -38,7 +38,7 @@ const ChatWindow = () => {
   return (
     <>
       <div className="page-main-container">
-        <header className="chat-header">
+        {/* <header className="chat-header">
           <div className="chat-back-arrow-container">
             <img
               className="chat-profile-backarrow"
@@ -74,6 +74,9 @@ const ChatWindow = () => {
             }}
           />
           <button onClick={joinRoom}>Join Room</button>
+        </div> */}
+        <div className="feature-coming-soon">
+          <h1>Feature coming soon...</h1>
         </div>
       </div>
       <AppNavbar />

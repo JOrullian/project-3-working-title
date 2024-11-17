@@ -94,12 +94,10 @@ export default function SkillHighlightPage() {
           </div>
         </div>
         <footer className="skill-highlight-footer">
-          <button className="skill-book-btn">Send message</button>
+          <button className="skill-book-btn" onClick={() => navigate(`/contact`)}>Send message</button>
         </footer>
       </div>
-      <div className="navbar">
-        <AppNavbar />
-      </div>
+      <AppNavbar />
     </>
   );
 }
