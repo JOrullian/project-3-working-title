@@ -5,6 +5,8 @@ import Settings from "../assets/settings.svg";
 import AppNavbar from "../components/Navbar";
 import { GET_SKILL_BY_ID } from "../utils/queries";
 
+import Auth from "../utils/auth";
+
 export default function SkillHighlightPage() {
   const { skillId } = useParams();
   const navigate = useNavigate();
@@ -13,6 +15,13 @@ export default function SkillHighlightPage() {
   const { loading, error, data } = useQuery(GET_SKILL_BY_ID, {
     variables: { id: skillId },
   });
+
+  // Checks that user is logged in with non-expired token and redirects them if not
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+  if (!token) {
+    localStorage.removeItem('id_token');
+    navigate('/login')
+  }
 
   // Save skill to local storage
   const saveToRecentSkills = (skill) => {
@@ -67,13 +76,16 @@ export default function SkillHighlightPage() {
               onClick={() => navigate(-1)}
             />
           </div>
-          <div className="profile-title-container">
+          {/* <div className="skill-highlight-title-container">
             <h1>{skill.name}</h1>
-          </div>
+          </div> */}
           <div className="settings-icon-container">
             <img className="settings-icon" src={Settings} alt="Settings" />
           </div>
         </header>
+        <div className="skill-highlight-title-container">
+          <h1>{skill.name}</h1>
+        </div>
         <div className="skill-highlight-img-container">
           <img
             className="skill-highlight-img"
@@ -86,15 +98,15 @@ export default function SkillHighlightPage() {
             <div className="skill-title-container">
               <h1 className="skill-type-title">{skill.category.name}</h1>
               <h2 className="skill-profile-name">{skill.user.firstName}</h2>
-              <h3 className="skill-location">{skill.timeAvailable}</h3>
+              <h3 className="skill-location">Available {(skill.timeAvailable).replaceAll('","', ', ').replaceAll('["', '').replaceAll('"]', '')}</h3>
             </div>
           </header>
           <div className="skill-description-body">
-            <p>{skill.description}</p>
+            <p className="skill-description-text">{skill.description}</p>
           </div>
         </div>
         <footer className="skill-highlight-footer">
-          <button className="skill-book-btn" onClick={() => navigate(`/contact`)}>Send message</button>
+          <button className="skill-book-btn" onClick={() => navigate(`/contact`)}>Send Email</button>
         </footer>
       </div>
       <AppNavbar />

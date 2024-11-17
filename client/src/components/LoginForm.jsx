@@ -11,6 +11,7 @@ const LoginForm = () => {
 
   const [login] = useMutation(LOGIN_USER);
 
+  // Update form state as user inputs data
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -25,6 +26,7 @@ const LoginForm = () => {
       return;
     }
 
+    // Runs Graphql mutation to log in a user from existing account in the database and clears out form input fields
     setIsSubmitting(true);
     try {
       const { data } = await login({

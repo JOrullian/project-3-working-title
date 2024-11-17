@@ -1,39 +1,56 @@
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import BackArrow from "../assets/back-arrow.svg";
 import Settings from "../assets/settings.svg";
 import ProfileImg from "../assets/profile-img.svg";
 import AppNavbar from "./Navbar";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Auth from "../utils/auth";
 
 const ChatWindow = () => {
-  const [room, setRoom] = useState("");
-  const navigate = useNavigate();
-
-  const [message, setMessage] = useState("");
-  const [messageReceived, setMessageReceived] = useState("");
-
-  const socket = io.connect("http://localhost:4000");
-
-  const joinRoom = () => {
-    if (room !== "") {
-      socket.emit("joinRoom", room);
-    }
-  };
-
-  const sendMessage = () => {
-    socket.emit("sendMessage", { message, room });
-  };
+  const navigate = useNavigate()
 
   useEffect(() => {
-    socket.on("receiveMessage", (data) => {
-      setMessageReceived(data.message);
-    });
-  }, [socket]);
+    // Checks that user is logged in with non-expired token and redirects them if not
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      localStorage.removeItem('id_token');
+      navigate('/login')
+    }
+    navigate()
+  }, []);
 
-  const handleBackArrowClick = () => {
-    navigate(`/`);
-  };
+
+  //  ~~~~~~~~~~~~~~~~~~~~~~~~ Base structure of chat feature -- NOT YET IMPLEMENTED ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  // const [room, setRoom] = useState("");
+
+  // const [message, setMessage] = useState("");
+  // const [messageReceived, setMessageReceived] = useState("");
+
+  // const socket = io.connect("http://localhost:4000");
+
+  // const joinRoom = () => {
+  //   if (room !== "") {
+  //     socket.emit("joinRoom", room);
+  //   }
+  // };
+
+  // const sendMessage = () => {
+  //   socket.emit("sendMessage", { message, room });
+  // };
+
+  // useEffect(() => {
+  //   socket.on("receiveMessage", (data) => {
+  //     setMessageReceived(data.message);
+  //   });
+  // }, [socket]);
+
+  // const handleBackArrowClick = () => {
+  //   navigate(`/`);
+  // };
+
+  //  ~~~~~~~~~~~~~~~~~~~~~~~~ Base structure of chat feature -- NOT YET IMPLEMENTED ~~~~~~~~~~~~~~~~~~~~~~~~
 
   return (
     <>

@@ -72,7 +72,7 @@ export default function Profile() {
                             <div key={skill._id}>
                                 <h3 className="profile-skill-title" onClick={() => navigate(`/skill/${skill._id}`)}>{skill.name}</h3>
                                 <p className="profile-description">Description: {skill.description}</p>
-                                <p className="profile-availability">Availability: {(skill.timeAvailable).replace('","', ', ').replace('["', '').replace('"]', '')} </p>
+                                <p className="profile-availability">Availability: {(skill.timeAvailable).replaceAll('","', ', ').replaceAll('["', '').replaceAll('"]', '')} </p>
                             </div>
                         </div>
                     )) :

@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-// Function to get latitude and longitude from city name
+// Function to get latitude and longitude from city name -- NOT YET UTILIZED ON LIVE PRODUCT
 const getCoordinatesFromCity = async (cityName) => {
   const apiKey = process.env.VITE_GOOGLE_GEOCODING_API_KEY;
   const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${cityName}&key=${apiKey}`;

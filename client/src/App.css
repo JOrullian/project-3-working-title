@@ -260,7 +260,8 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~ Login Page ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .login-main-container,
-.signup-main-container {
+.signup-main-container,
+.contact-main-container {
     height: 100%;
     width: 100%;
     background: linear-gradient(19deg, #1f2d33, #0F7173);
@@ -271,7 +272,8 @@
 }
 
 .login-header,
-.signup-header {
+.signup-header,
+.contact-header {
     height: 30%;
     width: var(--evenWidth);
     margin-bottom: 2rem;
@@ -288,7 +290,8 @@
 }
 
 .login-header-title,
-.signup-header-title {
+.signup-header-title,
+.contact-header-title {
     color: white;
     font-size: 230%;
     font-weight: 600;
@@ -368,7 +371,7 @@
     font-weight: 400;
     font-family: 'Poppins';
     border-radius: .75rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .login-signup-subtext,
@@ -526,12 +529,16 @@
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
-.profile-user-skills-container::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */;
+.profile-user-skills-container::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+    ;
 }
 
 .user-skill-line {
@@ -608,6 +615,13 @@
     height: 100%;
 }
 
+.skill-highlight-title-container {
+    font-size: 28px;
+    font-weight: bold;
+    max-width: 85%;
+    text-align: center;
+}
+
 .skill-hightlight-description-container {
     height: 80%;
     width: var(--evenWidth);
@@ -634,6 +648,9 @@
     align-items: center;
     justify-content: center;
     color: var(--secondary);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
 }
 
 .skill-type-title {
@@ -646,9 +663,11 @@
     font-size: 90%;
     font-weight: 400;
     margin-bottom: .3rem;
+    font-family: 'Poppins';
 }
 
 .skill-location {
+    text-align: center;
     font-size: 80%;
     color: #8f8f8f;
 }
@@ -660,6 +679,14 @@
     border-radius: 1rem;
 }
 
+.skill-description-body {
+    margin: 2rem;
+}
+
+.skill-description-text {
+    padding-right: 2rem;
+    width: 85%
+}
 
 .skill-hightlight-footer {
     height: 3rem;
@@ -670,15 +697,23 @@
 }
 
 .skill-book-btn {
-    height: 100%;
-    width: 80%;
-    background: var(--btnColor);
-    border: none;
-    font-weight: 400;
-    border-radius: .75rem;
-    font-family: 'Poppins';
-    color: white;
+    background: var(--primary);
+    border-radius: 1rem;
     font-size: 100%;
+    text-align: center;
+    border: none;
+    height: 3rem;
+    width: 100%;
+    color: white;
+    font-family: 'Poppins';
+}
+
+.skill-highlight-footer {
+    height: 20%;
+    width: var(--evenWidth);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~Chat~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -980,7 +1015,10 @@
     width: 90%;
     background-color: #eeeeee;
     border-radius: .5rem;
+    font-family: 'Poppins';
 }
+
+
 
 .create-skill-backarrow,
 .contact-form-backarrow {

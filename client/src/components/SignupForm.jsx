@@ -16,6 +16,7 @@ const SignupForm = () => {
 
   const [addUser] = useMutation(ADD_USER);
 
+  // Update form data state as user inputs
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -30,6 +31,8 @@ const SignupForm = () => {
       return;
     }
 
+
+    // Runs Graphql mutation to add a user to the database and clears out form input fields
     setIsSubmitting(true);
     try {
       const { data } = await addUser({
