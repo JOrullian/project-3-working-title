@@ -40,14 +40,8 @@ export default function Profile() {
         <>
             <div className="page-main-container">
                 <header className="profile-header">
-                    <div className="back-arrow-container">
-                        {/* <img className='profile-backarrow' src={BackArrow}></img> */}
-                    </div>
                     <div className="profile-title-container">
                         <h1 className="profile-title">Profile</h1>
-                    </div>
-                    <div className="logout-container">
-                        <button className='logout-button' onClick={Auth.logout}>Logout</button>
                     </div>
                 </header>
                 <div className="profile-user-info-container">
@@ -84,7 +78,9 @@ export default function Profile() {
                     )) :
                         <div>No skills added yet!</div>
                     }
-                    <div className='user-skills-div-bar'></div>
+                </div>
+                <div className="logout-container">
+                    <button className='logout-button' onClick={Auth.logout}>Logout</button>
                 </div>
             </div>
             <AppNavbar />
