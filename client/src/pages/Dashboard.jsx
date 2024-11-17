@@ -6,6 +6,7 @@ import Logo from "../assets/logo.svg";
 import CategoryList from "../components/CategoryList";
 import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
+import RecentSkillList from "../components/RecentSkillList";
 import { Navigate } from 'react-router-dom';
 
 import Auth from '../utils/auth'
@@ -54,7 +55,7 @@ function Dashboard() {
             </div>
           </header>
           <div className="for-you-body">
-            {/* Section for recommended skills to be displayed based on users preferences/searches */}
+            <RecentSkillList />
           </div>
         </section>
       </div>
