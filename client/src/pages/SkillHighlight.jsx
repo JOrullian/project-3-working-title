@@ -67,13 +67,16 @@ export default function SkillHighlightPage() {
               onClick={() => navigate(-1)}
             />
           </div>
-          <div className="profile-title-container">
+          {/* <div className="skill-highlight-title-container">
             <h1>{skill.name}</h1>
-          </div>
+          </div> */}
           <div className="settings-icon-container">
             <img className="settings-icon" src={Settings} alt="Settings" />
           </div>
         </header>
+        <div className="skill-highlight-title-container">
+          <h1>{skill.name}</h1>
+        </div>
         <div className="skill-highlight-img-container">
           <img
             className="skill-highlight-img"
@@ -86,15 +89,15 @@ export default function SkillHighlightPage() {
             <div className="skill-title-container">
               <h1 className="skill-type-title">{skill.category.name}</h1>
               <h2 className="skill-profile-name">{skill.user.firstName}</h2>
-              <h3 className="skill-location">{skill.timeAvailable}</h3>
+              <h3 className="skill-location">Available {(skill.timeAvailable).replaceAll('","', ', ').replaceAll('["', '').replaceAll('"]', '')}</h3>
             </div>
           </header>
           <div className="skill-description-body">
-            <p>{skill.description}</p>
+            <p className="skill-description-text">{skill.description}</p>
           </div>
         </div>
         <footer className="skill-highlight-footer">
-          <button className="skill-book-btn" onClick={() => navigate(`/contact`)}>Send message</button>
+          <button className="skill-book-btn" onClick={() => navigate(`/contact`)}>Send Email</button>
         </footer>
       </div>
       <AppNavbar />
