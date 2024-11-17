@@ -76,7 +76,7 @@ export default function Profile() {
                     {skills.length > 0 ? skills.map(skill => (
                         <div className='user-skill-line'>
                             <div key={skill._id}>
-                                <h3 className="profile-skill-title">{skill.name}</h3>
+                                <h3 className="profile-skill-title" onClick={() => navigate(`/skill/${skill._id}`)}>{skill.name}</h3>
                                 <p className="profile-description">Description: {skill.description}</p>
                                 <p className="profile-availability">Availability: {(skill.timeAvailable).replace('","', ', ').replace('["', '').replace('"]', '')} </p>
                             </div>
