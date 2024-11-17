@@ -32,6 +32,8 @@ export default function CategoryPage() {
   // Extract skills from query result
   const skills = data?.getSkillsByCategory || [];
 
+  console.log(skills);
+
   return (
     <>
       <div className="page-main-container">

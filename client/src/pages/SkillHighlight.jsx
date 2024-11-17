@@ -29,8 +29,8 @@ export default function SkillHighlightPage() {
     // Add the new skill to the front of the list
     updatedSkills.unshift({ id: skill._id, name: skill.name, description: skill.description });
   
-    // Limit the array to the two most recent skills
-    const limitedSkills = updatedSkills.slice(0, 2);
+    // Limit the array to the four most recent skills
+    const limitedSkills = updatedSkills.slice(0, 4);
   
     // Save back to local storage
     localStorage.setItem("recentSkills", JSON.stringify(limitedSkills));
