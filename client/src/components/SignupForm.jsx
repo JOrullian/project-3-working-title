@@ -122,6 +122,14 @@ const SignupForm = () => {
         <button className="signup-btn" id="signup-btn" disabled={isSubmitting}>
           {isSubmitting ? "Signing up..." : "Create Account"}
         </button>
+        <div className="existing-account-login">
+          <p>
+            Already have an account?{" "}
+            <a className="login-link" href="/Login">
+              Log in
+            </a>
+          </p>
+        </div>
       </form>
     </>
   );

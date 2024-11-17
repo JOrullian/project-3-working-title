@@ -371,14 +371,21 @@
     margin-bottom: 2rem;
 }
 
-.login-signup-subtext {
+.login-signup-subtext,
+.existing-account-login {
     font-size: 80%;
     color: #8f8f8f;
 }
 
-.signup-link {
+.existing-account-login {
+    padding-bottom: 10px
+}
+
+.signup-link,
+.login-link {
     color: var(--primary);
 }
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~Profile~~~~~~~~~~~~~~~~~~~~~~~ */
 
