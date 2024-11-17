@@ -388,9 +388,13 @@
     font-size: 90%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     font-weight: 500;
     color: var(--secondary);
+}
+
+.profile-title {
+    font-size: 30px;
 }
 
 .logout-container {
@@ -493,7 +497,7 @@
 }
 
 .profile-user-skills-container {
-    height: 50%;
+    height: 60%;
     width: var(--evenWidth);
     display: flex;
     flex-direction: column;
@@ -501,10 +505,16 @@
 }
 
 .user-skill-line {
-    height: 5rem;
+    margin: 7px;
+    height: 125px;
     width: 100%;
     border-radius: 1rem;
-    background-color: #f7f7f7;
+    background-color: #f2ead7;
+    box-shadow: 10px 5px 5px rgb(146, 145, 145);
+}
+
+.user-skill-line:hover {
+    box-shadow: 10px 5px 5px rgb(177, 177, 177)
 }
 
 .user-skills-div-bar {
@@ -525,6 +535,34 @@
     width: 80px;
     padding: 5px;
 }
+
+.profile-skill-title {
+    font-size: 28px;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-top: 15px;
+    padding-left: 20px;
+    color: var(--primary)
+}
+
+.profile-description,
+.profile-availability {
+    padding-bottom: 7px;
+    padding-top: 5px;
+    padding-left: 20px;
+    color: var(--secondary)
+}
+
+.profile-description {
+    font-size: 20px;
+}
+
+.profile-availability {
+    text-decoration: underline;
+}
+
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~Skill Highlight~~~~~~~~~~~~~~~~~~~~~~~ */
 

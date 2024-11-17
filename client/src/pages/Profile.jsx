@@ -34,7 +34,7 @@ export default function Profile() {
     if (error) return <p>Error loading profile data: {error.message}</p>;
 
     const skills = skillData.getSkillsByUser
-    // console.log(skills)
+    console.log(skills)
 
     return (
         <>
@@ -44,7 +44,7 @@ export default function Profile() {
                         {/* <img className='profile-backarrow' src={BackArrow}></img> */}
                     </div>
                     <div className="profile-title-container">
-                        <h1>Profile</h1>
+                        <h1 className="profile-title">Profile</h1>
                     </div>
                     <div className="logout-container">
                         <button className='logout-button' onClick={Auth.logout}>Logout</button>
@@ -76,10 +76,9 @@ export default function Profile() {
                     {skills.length > 0 ? skills.map(skill => (
                         <div className='user-skill-line'>
                             <div key={skill._id}>
-                                <h3>{skill.name}</h3>
-                                <p>{skill.category}</p>
-                                <p>Description: {skill.description}</p>
-                                <p>Availability: {(skill.timeAvailable).replace('","', ', ').replace('["', '').replace('"]', '')} </p>
+                                <h3 className="profile-skill-title">{skill.name}</h3>
+                                <p className="profile-description">Description: {skill.description}</p>
+                                <p className="profile-availability">Availability: {(skill.timeAvailable).replace('","', ', ').replace('["', '').replace('"]', '')} </p>
                             </div>
                         </div>
                     )) :
