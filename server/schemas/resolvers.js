@@ -19,6 +19,24 @@ const resolvers = {
     skill: async () => {
       return await Skill.find().populate('category').populate('user');
     },
+    getSkillsForSearch: async (parent, { term }) => {
+      console.log(`Search Term: `, term);
+      const regex = new RegExp(term, "i"); // Case-insensitive partial match
+    
+      // Step 1: Find matching categories
+      const matchingCategories = await Category.find({ name: { $regex: regex } });
+      const categoryIds = matchingCategories.map((category) => category._id);
+    
+      // Step 2: Find skills matching name or category ID
+      const skills = await Skill.find({
+        $or: [
+          { name: { $regex: regex } },
+          { category: { $in: categoryIds } },
+        ],
+      }).populate("category"); // Populate category for the frontend
+    
+      return skills;
+    },
     getSkillsByUser: async (parent, { userId }) => {
       return await Skill.find({ user: userId }).populate('category').populate('user');
     },

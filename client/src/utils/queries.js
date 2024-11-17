@@ -30,6 +30,28 @@ export const GET_CATEGORIES = gql`
   }
 `;
 
+export const GET_SKILLS_FOR_SEARCH = gql`
+  query GetSkillsForSearch($term: String!) {
+    getSkillsForSearch(term: $term) {
+    _id
+    category {
+      _id
+      image
+      name
+    }
+    description
+    name
+    timeAvailable
+    user {
+      _id
+      email
+      firstName
+      lastName
+    }
+  }
+}
+`;
+
 export const GET_SKILLS_BY_CATEGORY = gql`
 query GetSkillsByCategory($categoryName: String!) {
   getSkillsByCategory(categoryName: $categoryName) {
