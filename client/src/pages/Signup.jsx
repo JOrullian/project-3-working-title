@@ -10,7 +10,7 @@ export default function Signup(props) {
                         <img className="signup-logo" src={Logo}></img>
                     </div>
                     <div className="signup-header-title">
-                        <h1>Create an<br/>account</h1>
+                        <h1>Create an<br />account</h1>
                     </div>
                     <div className="signup-header-subtext">
                         <p>Enter your information</p>
