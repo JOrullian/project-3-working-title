@@ -4,10 +4,18 @@ import AppNavbar from "../components/Navbar";
 import BackArrow from "../assets/back-arrow.svg";
 import SkillList from "../components/SkillList";
 import { GET_SKILLS_BY_CATEGORY } from "../utils/queries";
+import Auth from "../utils/auth";
 
 export default function CategoryPage() {
   const { categoryName } = useParams();
   const navigate = useNavigate();
+
+  // Checks that user is logged in with non-expired token and redirects them if not
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+  if (!token) {
+    localStorage.removeItem('id_token');
+    navigate('/login')
+  }
 
   // GraphQL query to fetch skills by category
   const { loading, error, data } = useQuery(GET_SKILLS_BY_CATEGORY, {

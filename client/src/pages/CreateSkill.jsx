@@ -22,7 +22,7 @@ export default function CreateSkill() {
     const refreshPage = () => {
         navigate(0);
     }
-
+    // Checks that user is logged in with non-expired token and redirects them if not
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
         localStorage.removeItem('id_token');

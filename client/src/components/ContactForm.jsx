@@ -2,8 +2,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackArrow from "../assets/back-arrow.svg"
 
+import Auth from "../utils/auth";
+
 const ContactForm = () => {
   const navigate = useNavigate()
+
+  // Checks that user is logged in with non-expired token and redirects them if not
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+  if (!token) {
+    localStorage.removeItem('id_token');
+    navigate('/login')
+  }
 
   const [contactFormData, setContactFormData] = useState({
     firstName: "",
@@ -11,7 +20,7 @@ const ContactForm = () => {
     message: "",
   });
 
-
+  // Update form data state as user inputs
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setContactFormData({ ...contactFormData, [name]: value });
@@ -20,12 +29,14 @@ const ContactForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    // Empty input fields after submission
     setContactFormData({
       firstName: "",
       email: "",
       message: "",
     });
 
+    // Redirect user to previous page (skill highlight where user clicked button)
     navigate(-1)
   };
 

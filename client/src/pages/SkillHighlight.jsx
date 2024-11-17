@@ -5,6 +5,8 @@ import Settings from "../assets/settings.svg";
 import AppNavbar from "../components/Navbar";
 import { GET_SKILL_BY_ID } from "../utils/queries";
 
+import Auth from "../utils/auth";
+
 export default function SkillHighlightPage() {
   const { skillId } = useParams();
   const navigate = useNavigate();
@@ -13,6 +15,13 @@ export default function SkillHighlightPage() {
   const { loading, error, data } = useQuery(GET_SKILL_BY_ID, {
     variables: { id: skillId },
   });
+
+  // Checks that user is logged in with non-expired token and redirects them if not
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+  if (!token) {
+    localStorage.removeItem('id_token');
+    navigate('/login')
+  }
 
   // Save skill to local storage
   const saveToRecentSkills = (skill) => {

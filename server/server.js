@@ -22,30 +22,32 @@ const server = new ApolloServer({
 const startApolloServer = async () => {
   await server.start();
 
-  app.use(cors());
-  const serverIO = http.createServer(app)
-  const io = new Server(serverIO, {
-    cors: {
-      origin: "http://localhost:3000",
-      methods: ['GET', 'POST']
-    }
-  })
-  serverIO.listen(4000, () => {
-    console.log(`Server is RUNNING on port ${PORT}`)
-  })
+  // ~~~~~~~~~~~~~ Set up base socket.io server functionality -- NOT YET IMPLEMENTED ~~~~~~~~~~~~~
+  // app.use(cors());
+  // const serverIO = http.createServer(app)
+  // const io = new Server(serverIO, {
+  //   cors: {
+  //     origin: "http://localhost:3000",
+  //     methods: ['GET', 'POST']
+  //   }
+  // })
+  // serverIO.listen(4000, () => {
+  //   console.log(`Server is RUNNING on port ${PORT}`)
+  // })
 
-  io.on('connection', (socket) => {
-    console.log(`User Connected: ${socket.id}`)
+  // io.on('connection', (socket) => {
+  //   console.log(`User Connected: ${socket.id}`)
 
-    socket.on('joinRoom', (data) => {
-      socket.join(data)
-    })
+  //   socket.on('joinRoom', (data) => {
+  //     socket.join(data)
+  //   })
 
-    socket.on('sendMessage', (data) => {
-      socket.to(data.room).emit('receiveMessage', data)
-    })
-  })
+  //   socket.on('sendMessage', (data) => {
+  //     socket.to(data.room).emit('receiveMessage', data)
+  //   })
+  // })
 
+  // Set up Express middleware
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 

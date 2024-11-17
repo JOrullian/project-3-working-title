@@ -6,6 +6,7 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
+  // Redirects user to explore endpoint with searched term
   const handleSearch = (event) => {
     event.preventDefault();
     console.log("Navigating to:", `/explore?search=${searchTerm}`);
