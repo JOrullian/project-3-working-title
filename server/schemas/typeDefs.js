@@ -33,6 +33,7 @@ const typeDefs = `
     categories: [Category]
     user: User
     skill: [Skill]
+    getSkillsForSearch(term: String!): [Skill]
     getSkillsByUser(userId: ID!): [Skill]
     getSkillsByCategory(categoryName: String!): [Skill]
     getSkillsByName(name: String!): [Skill]
