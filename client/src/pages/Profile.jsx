@@ -33,8 +33,8 @@ export default function Profile() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error loading profile data: {error.message}</p>;
 
-    const skills = skillData.getSkillsByUser
-    console.log(skills)
+    // const skills = skillData.getSkillsByUser
+    // console.log(skills)
 
     return (
         <>

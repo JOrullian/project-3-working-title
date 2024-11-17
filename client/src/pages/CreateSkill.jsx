@@ -42,12 +42,9 @@ export default function CreateSkill() {
                     user: Auth.getProfile().data._id
                 },
             });
-            console.log(data)
-            console.log(Object.keys(checkedDays))
 
             navigate('/profile')
             refreshPage()
-
 
         } catch (err) {
             console.error(err);
