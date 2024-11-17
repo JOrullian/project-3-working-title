@@ -11,6 +11,7 @@ import Chat from "./pages/Chat.jsx";
 import CategoryPage from "./pages/CategoryPage.jsx";
 import Explore from './pages/Explore.jsx';
 import CreateSkill from './pages/CreateSkill.jsx'
+import Contact from "./pages/Contact.jsx";
 
 import "./index.css";
 
@@ -55,7 +56,11 @@ const router = createBrowserRouter([
       {
         path: '/create-skill',
         element: <CreateSkill />
-      }
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
     ],
   },
 ]);

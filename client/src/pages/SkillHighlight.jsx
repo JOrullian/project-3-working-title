@@ -19,19 +19,19 @@ export default function SkillHighlightPage() {
   // Save skill to local storage
   const saveToRecentSkills = (skill) => {
     if (!skill) return;
-  
+
     // Retrieve recent skills from local storage
     const recentSkills = JSON.parse(localStorage.getItem("recentSkills")) || [];
-  
+
     // Remove the skill if it already exists in the list to avoid duplicates
     const updatedSkills = recentSkills.filter((item) => item.description !== skill.description);
-  
+
     // Add the new skill to the front of the list
     updatedSkills.unshift({ id: skill._id, name: skill.name, description: skill.description });
-  
+
     // Limit the array to the two most recent skills
     const limitedSkills = updatedSkills.slice(0, 2);
-  
+
     // Save back to local storage
     localStorage.setItem("recentSkills", JSON.stringify(limitedSkills));
   };
@@ -87,7 +87,7 @@ export default function SkillHighlightPage() {
           </div>
         </div>
         <footer className="skill-highlight-footer">
-          <button className="skill-book-btn">Send message</button>
+          <button className="skill-book-btn" onClick={() => navigate(`/contact`)}>Send message</button>
         </footer>
       </div>
       <div className="navbar">

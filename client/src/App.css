@@ -183,24 +183,28 @@
 } */
 
 .promotional-container {
-    height: 7rem; /* Adjust height as needed */
+    height: 7rem;
+    /* Adjust height as needed */
     width: var(--evenWidth);
-    background-image: url('../public/logo.svg'); /* Replace with your image path */
-    background-repeat: repeat-x; /* Repeat horizontally */
+    background-image: url('../public/logo.svg');
+    /* Replace with your image path */
+    background-repeat: repeat-x;
+    /* Repeat horizontally */
     background-color: var(--primary);
     border-radius: 1rem;
     animation: scroll-background 10s linear infinite;
-  }
-  
-  /* Animation to scroll the background */
-  @keyframes scroll-background {
+}
+
+/* Animation to scroll the background */
+@keyframes scroll-background {
     from {
-      background-position: 0 0;
+        background-position: 0 0;
     }
+
     to {
-      background-position: -100% 0;
+        background-position: -100% 0;
     }
-  }
+}
 
 .for-you-skill-section {
     height: 50%;
@@ -358,7 +362,8 @@
 
 .login-btn,
 .signup-btn,
-.create-skill-btn {
+.create-skill-btn,
+.contact-form-btn {
     height: 3rem;
     width: 85%;
     border: none;
@@ -653,12 +658,14 @@
     color: #8f8f8f;
 }
 
-.skill-description-body {
+.skill-description-body,
+.contact-input-message {
     height: 85%;
     width: 100%;
     background-color: #eeeeee;
     border-radius: 1rem;
 }
+
 
 .skill-hightlight-footer {
     height: 3rem;
@@ -818,7 +825,8 @@
 
 /* ~~~~~~~~~~~~~~~~~~~~~~Create Skill~~~~~~~~~~~~~~~~~~~~~~~ */
 
-.create-skill-container {
+.create-skill-container,
+.contact-container {
     height: 100%;
     width: 100%;
     background: linear-gradient(19deg, #1f2d33, #0F7173);
@@ -827,7 +835,8 @@
     justify-content: center;
 }
 
-#new-skill-form {
+#new-skill-form,
+#contact-form {
     height: 100%;
     width: 100%;
     display: flex;
@@ -836,7 +845,8 @@
     justify-content: center;
 }
 
-.create-skill-form-container {
+.create-skill-form-container,
+.contact-form-container {
     height: 90%;
     width: var(--evenWidth);
     background-color: #ffffff;
@@ -854,7 +864,8 @@
     color: var(--secondary);
 }
 
-.create-skill-body {
+.create-skill-body,
+.contact-body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -864,7 +875,9 @@
     color: var(--secondary);
 }
 
-.create-skill-input {
+.create-skill-input,
+.contact-input-name,
+.contact-input-email {
     height: 2rem;
     width: var(--evenWidth);
     font-family: 'Poppins';
@@ -888,7 +901,8 @@
     outline: none;
 }
 
-.create-skill-footer {
+.create-skill-footer,
+.contact-footer {
     height: 12%;
     width: 100%;
     display: flex;
@@ -932,4 +946,19 @@
     width: 4rem;
     margin-left: .3rem;
     margin-right: .3rem;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~Contact Page~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.contact-input-message {
+    height: 50%;
+    width: 90%;
+    background-color: #eeeeee;
+    border-radius: .5rem;
+}
+
+.create-skill-backarrow,
+.contact-form-backarrow {
+    height: 30px;
+    justify-content: start;
 }
