@@ -1,10 +1,10 @@
 import Card from "react-bootstrap/Card";
 import PropTypes from "prop-types";
 
-function SkillCard({ name, description, onClick }) {
+function SkillCard({ name, description, onClick, image }) {
   return (
     <Card onClick={onClick} style={{ cursor: "pointer" }}>
-        {/* <Card.Img variant="top" src={image} /> */}
+        <Card.Img variant="top" src={`/images/${image}`} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{description}</Card.Text>
@@ -16,7 +16,7 @@ function SkillCard({ name, description, onClick }) {
 SkillCard.propTypes = {
     name: PropTypes.string,
     description: PropTypes.string,
-    // imgSrc: PropTypes.string,
+    image: PropTypes.string,
     onClick: PropTypes.elementType,
 }
 

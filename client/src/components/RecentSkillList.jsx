@@ -17,6 +17,7 @@ export default function RecentSkillList() {
           name={skill.name}
           description={skill.description}
           onClick={() => navigate(`/skill/${skill.id}`)}
+          image={skill.category.image}
         />
       ))}
     </div>

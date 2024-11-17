@@ -14,24 +14,30 @@ export default function SkillHighlightPage() {
     variables: { id: skillId },
   });
 
-  console.log(data);
-
   // Save skill to local storage
   const saveToRecentSkills = (skill) => {
     if (!skill) return;
-  
+
     // Retrieve recent skills from local storage
     const recentSkills = JSON.parse(localStorage.getItem("recentSkills")) || [];
-  
+
     // Remove the skill if it already exists in the list to avoid duplicates
-    const updatedSkills = recentSkills.filter((item) => item.description !== skill.description);
-  
+    const updatedSkills = recentSkills.filter(
+      (item) => item.description !== skill.description
+    );
+
     // Add the new skill to the front of the list
-    updatedSkills.unshift({ id: skill._id, name: skill.name, description: skill.description });
-  
+    updatedSkills.unshift({
+      id: skill._id,
+      name: skill.name,
+      description: skill.description,
+      category: skill.category,
+      user: skill.user,
+    });
+
     // Limit the array to the four most recent skills
     const limitedSkills = updatedSkills.slice(0, 4);
-  
+
     // Save back to local storage
     localStorage.setItem("recentSkills", JSON.stringify(limitedSkills));
   };
@@ -41,6 +47,7 @@ export default function SkillHighlightPage() {
 
   // Extract skill data
   const skill = data?.getSkillById;
+  console.log(skill);
 
   if (skill) saveToRecentSkills(skill);
 
@@ -68,18 +75,18 @@ export default function SkillHighlightPage() {
           </div>
         </header>
         <div className="skill-highlight-img-container">
-          {/* <img
+          <img
             className="skill-highlight-img"
-            src={skill.image || "default-image-path.jpg"}
+            src={`/images/${skill.category.image}`}
             alt={skill.name}
-          /> */}
+          />
         </div>
         <div className="skill-highlight-description-container">
           <header className="skill-description-header">
             <div className="skill-title-container">
-              <h1 className="skill-type-title">{skill.category}</h1>
-              {/* <h2 className="skill-profile-name">{skill.creator.name}</h2> */}
-              <h3 className="skill-location">{skill.location}</h3>
+              <h1 className="skill-type-title">{skill.category.name}</h1>
+              <h2 className="skill-profile-name">{skill.user.firstName}</h2>
+              <h3 className="skill-location">{skill.timeAvailable}</h3>
             </div>
           </header>
           <div className="skill-description-body">
