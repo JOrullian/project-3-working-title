@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
 import RecentSkillList from "../components/RecentSkillList";
 import { Navigate } from 'react-router-dom';
+import HeroBanner from '/images/shift-hero-banner.png'
 
 import Auth from '../utils/auth'
 
@@ -43,7 +44,7 @@ function Dashboard() {
           </div>
         </div>
         <div className="promotional-container">
-          {/* Unknown promotional space.. ads? */}
+          <img className="hero-banner-img" src={HeroBanner}></img>
         </div>
         <section className="for-you-skill-section">
           <header className="for-you-header">

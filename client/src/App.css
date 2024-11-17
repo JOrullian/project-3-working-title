@@ -186,24 +186,20 @@
     height: 7rem;
     /* Adjust height as needed */
     width: var(--evenWidth);
-    background-image: url('/logo.svg');
-    /* Replace with your image path */
-    background-repeat: repeat-x;
-    /* Repeat horizontally */
-    background-color: var(--primary);
+    background: var(--btnColor);
     border-radius: 1rem;
-    animation: scroll-background 10s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-/* Animation to scroll the background */
-@keyframes scroll-background {
-    from {
-        background-position: 0 0;
-    }
+.hero-banner-img {
+    height: 100%;
+}
 
-    to {
-        background-position: -100% 0;
-    }
+.promo-title {
+    font-size: 120%;
 }
 
 .for-you-skill-section {
@@ -391,7 +387,7 @@
     width: var(--evenWidth);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .back-arrow-container {
@@ -412,18 +408,14 @@
     font-size: 90%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     font-weight: 500;
     color: var(--secondary);
 }
 
-.profile-title {
-    font-size: 30px;
-}
-
 .logout-container {
-    height: 100%;
-    width: 5rem;
+    height: 20%;
+    width: var(--evenWidth);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -521,24 +513,27 @@
 }
 
 .profile-user-skills-container {
-    height: 60%;
+    height: 40%;
     width: var(--evenWidth);
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.profile-user-skills-container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */;
 }
 
 .user-skill-line {
-    margin: 7px;
-    height: 125px;
-    width: 100%;
+    margin-bottom: 1rem;
+    height: 4rem;
+    width: 94%;
     border-radius: 1rem;
-    background-color: #f2ead7;
-    box-shadow: 10px 5px 5px rgb(146, 145, 145);
-}
-
-.user-skill-line:hover {
-    box-shadow: 10px 5px 5px rgb(177, 177, 177)
+    border: 2px solid #eeeeee;
+    padding: .5rem;
 }
 
 .user-skills-div-bar {
@@ -549,37 +544,31 @@
 }
 
 .logout-button {
-    background-color: #d88b8b;
-    border-radius: 25px;
-    font-size: 18px;
-    font-style: italic;
+    background: linear-gradient(19deg, #c42835, #d84753);
+    border-radius: 1rem;
+    font-size: 100%;
     text-align: center;
     border: none;
-    height: 50px;
-    width: 80px;
-    padding: 5px;
+    height: 3rem;
+    width: 100%;
+    color: white;
 }
 
 .profile-skill-title {
-    font-size: 28px;
-    font-style: italic;
-    font-weight: bold;
-    text-decoration: underline;
-    padding-top: 15px;
-    padding-left: 20px;
-    color: var(--primary)
+    font-size: 120%;
+    font-weight: 500;
+    color: #1f2d33;
 }
 
 .profile-description,
 .profile-availability {
-    padding-bottom: 7px;
-    padding-top: 5px;
-    padding-left: 20px;
-    color: var(--secondary)
+    font-size: 85%;
+    color: #8f8f8f;
 }
 
 .profile-description {
-    font-size: 20px;
+    margin-bottom: .2rem;
+    margin-top: .2rem;
 }
 
 .profile-availability {
@@ -613,7 +602,7 @@
 }
 
 .skill-hightlight-description-container {
-    height: 65%;
+    height: 80%;
     width: var(--evenWidth);
     display: flex;
     flex-direction: column;
@@ -661,7 +650,6 @@
 .contact-input-message {
     height: 85%;
     width: 100%;
-    background-color: #eeeeee;
     border-radius: 1rem;
 }
 
