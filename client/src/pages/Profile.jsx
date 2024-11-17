@@ -1,16 +1,13 @@
-import BackArrow from '../assets/back-arrow.svg'
-import Settings from '../assets/settings.svg'
+// import BackArrow from '../assets/back-arrow.svg'
+// import Settings from '../assets/settings.svg'
+// import SkillList from '../components/SkillList'
+// import RatingStar from '../assets/rating-star.svg'
 import ProfileImg from '../assets/profile-img.svg'
-import RatingStar from '../assets/rating-star.svg'
 import AppNavbar from "../components/Navbar"
-import SkillList from '../components/SkillList'
 import { useQuery } from '@apollo/client'
 import { useNavigate } from 'react-router-dom';
 import Auth from '../utils/auth'
-
 import { GET_ME, GET_SKILLS_BY_USER } from '../utils/queries'
-
-
 
 export default function Profile() {
     const navigate = useNavigate()
@@ -21,7 +18,6 @@ export default function Profile() {
     }
 
     const { loading, error, data } = useQuery(GET_ME)
-
     const user = data?.me
 
     const { loading: skillLoading, error: skillError, data: skillData } = useQuery(GET_SKILLS_BY_USER, {
@@ -31,13 +27,14 @@ export default function Profile() {
         skip: !data?.me?._id
     });
 
-    console.log(skillData)
-
     if (skillLoading) return <p>Loading...</p>;
     if (skillError) return <p>Error loading skills data: {error.message}</p>;
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error loading profile data: {error.message}</p>;
+
+    const skills = skillData.getSkillsByUser
+    console.log(skills)
 
     return (
         <>
@@ -76,12 +73,13 @@ export default function Profile() {
                     </div>
                 </div> */}
                 <div className="profile-user-skills-container">
-                    {skillData.getSkillsByUser.map(skill => (
+                    {skills.map(skill => (
                         <div className='user-skill-line'>
                             <div key={skill._id}>
                                 <h3>{skill.name}</h3>
                                 <p>{skill.category}</p>
-                                <p>{skill.description}</p>
+                                <p>Description: {skill.description}</p>
+                                <p>Availability: {(skill.timeAvailable).replace('","', ', ').replace('["', '').replace('"]', '')} </p>
                             </div>
                         </div>
                     ))}

@@ -21,8 +21,8 @@ mutation addUser($firstName: String!, $lastName: String!, $email: String!, $pass
 }
 `
 export const ADD_SKILL = gql`
-mutation Mutation($name: String!, $description: String!, $category: ID!, $user: ID!) {
-  addSkill(name: $name, description: $description, category: $category, user: $user) {
+mutation addSkill($name: String!, $description: String!, $category: ID!, $user: ID!, $timeAvailable: String) {
+  addSkill(name: $name, description: $description, category: $category, user: $user, timeAvailable: $timeAvailable) {
     _id
     category {
       _id

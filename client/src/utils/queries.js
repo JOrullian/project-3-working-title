@@ -46,6 +46,7 @@ export const GET_SKILLS_BY_USER = gql`
       _id
       name
       description
+      timeAvailable
     }
   }
 `;
