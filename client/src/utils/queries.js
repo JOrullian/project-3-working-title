@@ -31,34 +31,69 @@ export const GET_CATEGORIES = gql`
 `;
 
 export const GET_SKILLS_BY_CATEGORY = gql`
-  query GetSkillsByCategory($categoryName: String!) {
-    getSkillsByCategory(categoryName: $categoryName) {
+query GetSkillsByCategory($categoryName: String!) {
+  getSkillsByCategory(categoryName: $categoryName) {
+    _id
+    category {
       _id
+      image
       name
-      description
+    }
+    description
+    name
+    timeAvailable
+    user {
+      _id
+      email
+      firstName
+      lastName
     }
   }
+}
 `;
 
 export const GET_SKILLS_BY_USER = gql`
-  query GetSkillsByUser($userId: ID!) {
-    getSkillsByUser(userId: $userId) {
+query Query($userId: ID!) {
+  getSkillsByUser(userId: $userId) {
+    _id
+    category {
       _id
+      image
       name
-      description
-      timeAvailable
+    }
+    description
+    name
+    timeAvailable
+    user {
+      _id
+      email
+      firstName
+      lastName
     }
   }
+}
 `;
 
 export const GET_SKILLS_BY_NAME = gql`
-  query getSkillsByName($name: String!) {
-    getSkillsByName(name: $name) {
+query GetSkillsByName($name: String!) {
+  getSkillsByName(name: $name) {
+    _id
+    category {
       _id
+      image
       name
-      description
+    }
+    description
+    name
+    timeAvailable
+    user {
+      _id
+      email
+      firstName
+      lastName
     }
   }
+}
 `;
 
 export const GET_NEARBY_SKILLS = gql`

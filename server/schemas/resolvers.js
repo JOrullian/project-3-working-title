@@ -17,10 +17,10 @@ const resolvers = {
       throw AuthenticationError;
     },
     skill: async () => {
-      return await Skill.find();
+      return await Skill.find().populate('category').populate('user');
     },
     getSkillsByUser: async (parent, { userId }) => {
-      return await Skill.find({ user: userId });
+      return await Skill.find({ user: userId }).populate('category').populate('user');
     },
     getSkillsByCategory: async (parent, { categoryName }) => {
       // Find the category by name, case-insensitive
@@ -33,15 +33,15 @@ const resolvers = {
       }
 
       // Find skills with the category's ObjectId
-      return await Skill.find({ category: category._id });
+      return await Skill.find({ category: category._id }).populate('category').populate('user');
     },
     getSkillsByName: async (parent, { name }) => {
       console.log("Searching for skills with name:", name);
-      return await Skill.find({ name: { $regex: name, $options: "i" } }); // Case-insensitive search
+      return await Skill.find({ name: { $regex: name, $options: "i" } }).populate('category').populate('user'); // Case-insensitive search
     },
     getSkillById: async (parent, { id }) => {
       console.log("Fetching skill with id:", id);
-      const skill = await Skill.findById(id);
+      const skill = await Skill.findById(id).populate('category').populate('user');
       console.log("Skill found:", skill);
       return skill;
     },

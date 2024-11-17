@@ -48,11 +48,11 @@ function Dashboard() {
         <section className="for-you-skill-section">
           <header className="for-you-header">
             <div className="for-you-title-container">
-              <h3 className="for-you-title">For You</h3>
+              <h3 className="for-you-title">Recently Viewed</h3>
             </div>
-            <div className="view-all-container">
+            {/* <div className="view-all-container">
               view all <span className="view-all-arrow">&gt;</span>
-            </div>
+            </div> */}
           </header>
           <div className="for-you-body">
             <RecentSkillList />

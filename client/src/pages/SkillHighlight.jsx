@@ -28,10 +28,17 @@ export default function SkillHighlightPage() {
 
     // Add the new skill to the front of the list
     updatedSkills.unshift({ id: skill._id, name: skill.name, description: skill.description });
+<<<<<<< HEAD
 
     // Limit the array to the two most recent skills
     const limitedSkills = updatedSkills.slice(0, 2);
 
+=======
+  
+    // Limit the array to the four most recent skills
+    const limitedSkills = updatedSkills.slice(0, 4);
+  
+>>>>>>> dbc405e7914df8712eac5892a1deeb29fd36148a
     // Save back to local storage
     localStorage.setItem("recentSkills", JSON.stringify(limitedSkills));
   };
@@ -90,9 +97,7 @@ export default function SkillHighlightPage() {
           <button className="skill-book-btn" onClick={() => navigate(`/contact`)}>Send message</button>
         </footer>
       </div>
-      <div className="navbar">
-        <AppNavbar />
-      </div>
+      <AppNavbar />
     </>
   );
 }
