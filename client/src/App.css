@@ -175,12 +175,32 @@
     align-items: center;
 }
 
-.promotional-container {
+/* .promotional-container {
     height: 7rem;
     width: var(--evenWidth);
     background-color: var(--primary);
     border-radius: 1rem;
-}
+} */
+
+.promotional-container {
+    height: 7rem; /* Adjust height as needed */
+    width: var(--evenWidth);
+    background-image: url('../public/logo.svg'); /* Replace with your image path */
+    background-repeat: repeat-x; /* Repeat horizontally */
+    background-color: var(--primary);
+    border-radius: 1rem;
+    animation: scroll-background 10s linear infinite;
+  }
+  
+  /* Animation to scroll the background */
+  @keyframes scroll-background {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -100% 0;
+    }
+  }
 
 .for-you-skill-section {
     height: 50%;
