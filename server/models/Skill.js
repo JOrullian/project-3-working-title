@@ -11,7 +11,7 @@ const skillSchema = new Schema({
         trim: true
     },
     timeAvailable: {
-        type: [String]
+        type: String
     },
     description: {
         type: String
@@ -19,7 +19,6 @@ const skillSchema = new Schema({
     category: {
         type: Schema.Types.ObjectId,
         ref: 'Category',
-        required: true
     },
     user: {
         type: Schema.Types.ObjectId,
@@ -30,5 +29,5 @@ const skillSchema = new Schema({
 
 
 const Skill = mongoose.model('Skill', skillSchema);
- 
+
 module.exports = Skill;

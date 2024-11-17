@@ -393,9 +393,9 @@
     color: var(--secondary);
 }
 
-.settings-icon-container {
+.logout-container {
     height: 100%;
-    width: 3rem;
+    width: 5rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -512,6 +512,18 @@
     width: 100%;
     margin-top: .2rem;
     margin-bottom: .2rem;
+}
+
+.logout-button {
+    background-color: #d88b8b;
+    border-radius: 25px;
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    border: none;
+    height: 50px;
+    width: 80px;
+    padding: 5px;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~Skill Highlight~~~~~~~~~~~~~~~~~~~~~~~ */

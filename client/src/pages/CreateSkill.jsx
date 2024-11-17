@@ -1,41 +1,118 @@
-import { useEffect } from "react"
+import { useState, userParams } from "react"
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_CATEGORIES } from "../utils/queries";
 import { ADD_SKILL } from "../utils/mutations";
+import { useNavigate } from "react-router-dom"
+
+import Auth from "../utils/auth";
 
 export default function CreateSkill() {
+    const [skillnameText, setSkillnameText] = useState('')
+    const [descriptionText, setDescriptionText] = useState('')
+    const [selectedCategory, setSelectedCategory] = useState('')
 
-    const { loading, data } = useQuery(GET_CATEGORIES);
+    const { data } = useQuery(GET_CATEGORIES);
     const categories = data?.categories || []
 
-    console.log(categories)
-
-    const categoryNames = categories.map((categoryName) => categoryName.name)
-    console.log(categoryNames)
-
     const [createSkill, { error }] = useMutation(ADD_SKILL);
+
+    const navigate = useNavigate()
+    const refreshPage = () => {
+        navigate(0);
+    }
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+        localStorage.removeItem('id_token');
+        navigate('/login')
+    }
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        console.log(selectedCategory)
+        console.log(skillnameText)
+        console.log(descriptionText)
+
+        try {
+            const { data } = await createSkill({
+                variables: {
+                    name: skillnameText,
+                    description: descriptionText,
+                    category: selectedCategory,
+                    user: Auth.getProfile().data._id
+                },
+            });
+            console.log(data)
+
+            navigate('/profile')
+            refreshPage()
+
+
+        } catch (err) {
+            console.error(err);
+            console.error('Full error:', err);
+            console.error('GraphQL errors:', err.graphQLErrors);
+            console.error('Network error:', err.networkError);
+        }
+    };
+
+    const handleCategoryChange = (event) => {
+        const { value } = event.target
+        setSelectedCategory(value)
+    };
+
+    const handleDescriptionChange = (event) => {
+        const { value } = event.target
+        setDescriptionText(value);
+    };
+
+    const handleNameChange = (event) => {
+        const { value } = event.target
+        setSkillnameText(value)
+    };
 
     return (
         <>
             <div className="create-skill-container">
                 <div className="create-skill-form-container">
-                    <form id="new-skill-form">
+                    <form id="new-skill-form" onSubmit={handleFormSubmit}>
                         <header className="create-skill-header">
                             <h1>Create a new skill!</h1>
                         </header>
                         <div className="create-skill-body">
-                            <input id="skill-name" type="text" className="create-skill-input" placeholder="Skill name..." required></input>
-                            <select id="skill-category" className="create-skill-category-selection" required>
-                                <option value="" selected></option>
-                                {categoryNames.map((categoryName) => <option>{categoryName}</option>)}
+                            <input
+                                id="skill-name" type="text" className="create-skill-input" placeholder="Skill name..."
+                                value={skillnameText}
+                                required
+                                onChange={handleNameChange}></input>
+                            <select
+                                id="skill-category" className="create-skill-category-selection"
+                                value={selectedCategory}
+                                onChange={handleCategoryChange}
+                                required >
+                                <option value="">Select a Category</option>
+                                {categories.map((category, index) => <option key={index} value={category._id}>{category.name}</option>)}
                             </select>
-                            <textarea id="skill-description" className="create-skill-desc" placeholder="Skill description..." required></textarea>
-                            <div className="availability-container">
+                            <textarea
+                                name="description-field" id="skill-description" className="create-skill-desc" placeholder="Skill description..."
+                                value={descriptionText}
+                                onChange={handleDescriptionChange}
+                                required>
+                            </textarea>
+                            <div
+                                className="availability-container">
                                 <h2 className="availability-title">Availability</h2>
-                                <div className="date-line">
-                                    <input type="checkbox" id="sunday"></input>
+                                <div
+                                    className="date-line">
+                                    <input
+                                        type="checkbox"
+                                        id="sunday"></input>
                                     <h3>Sunday:</h3>
-                                    <input className="date-input" id="sunday-start-time" type="time"></input> - <input className="date-input" id="sunday-end-time" type="time"></input>
+                                    <input
+                                        className="date-input" id="sunday-start-time"
+                                        type="time"></input> - <input className="date-input" id="sunday-end-time"
+                                            type="time"></input>
                                 </div>
                                 <div className="date-line">
                                     <input type="checkbox" id="monday"></input>

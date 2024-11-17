@@ -38,7 +38,7 @@ const resolvers = {
     getSkillsByName: async (parent, { name }) => {
       console.log("Searching for skills with name:", name);
       return await Skill.find({ name: { $regex: name, $options: "i" } }); // Case-insensitive search
-    },    
+    },
     getSkillById: async (parent, { id }) => {
       console.log("Fetching skill with id:", id);
       const skill = await Skill.findById(id);
@@ -73,7 +73,7 @@ const resolvers = {
         const user = await User.findById(context.user._id);
         return user;
       }
-      throw new AuthenticationError("Not authenticated");
+      throw AuthenticationError;
 
     },
   },
@@ -93,8 +93,9 @@ const resolvers = {
           timeAvailable,
           description,
           category,
-          user,
+          user: context.user._id
         });
+
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { skill: skill._id } }
