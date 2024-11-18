@@ -672,6 +672,11 @@
     color: #8f8f8f;
 }
 
+.skill-description-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .skill-description-body,
 .contact-input-message {
     height: 85%;
@@ -681,6 +686,7 @@
 
 .skill-description-body {
     margin: 2rem;
+    padding-top: 10px;
 }
 
 .skill-description-text {
