@@ -45,29 +45,31 @@ db.once('open', async () => {
     console.log('users seeded');
 
     // Create skills for testing
+    // Create skills for testing
     const skills = await Skill.insertMany([
-      { name: "Painting", timeAvailable: new Date(), description: "Acrylic and watercolor painting", category: categories[0]._id, user: user1._id },
-      { name: "Digital Art", timeAvailable: new Date(), description: "Creating digital illustrations", category: categories[0]._id, user: user2._id },
-      { name: "Coding", timeAvailable: new Date(), description: "Frontend development skills", category: categories[1]._id, user: user1._id },
-      { name: "Web Design", timeAvailable: new Date(), description: "UI/UX design for websites", category: categories[1]._id, user: user2._id },
-      { name: "Guitar", timeAvailable: new Date(), description: "Playing acoustic guitar", category: categories[2]._id, user: user1._id },
-      { name: "Piano", timeAvailable: new Date(), description: "Classical piano lessons", category: categories[2]._id, user: user2._id },
-      { name: "Math Tutoring", timeAvailable: new Date(), description: "Algebra and calculus tutoring", category: categories[3]._id, user: user1._id },
-      { name: "Science Tutoring", timeAvailable: new Date(), description: "Physics and chemistry tutoring", category: categories[3]._id, user: user2._id },
-      { name: "Woodworking", timeAvailable: new Date(), description: "Creating custom furniture", category: categories[4]._id, user: user1._id },
-      { name: "Sewing", timeAvailable: new Date(), description: "Making clothes and accessories", category: categories[4]._id, user: user2._id },
-      { name: "Baking", timeAvailable: new Date(), description: "Baking cakes and pastries", category: categories[5]._id, user: user1._id },
-      { name: "Cooking", timeAvailable: new Date(), description: "Cooking Italian and Asian cuisine", category: categories[5]._id, user: user2._id },
-      { name: "Portrait Photography", timeAvailable: new Date(), description: "Capturing portrait photos", category: categories[6]._id, user: user1._id },
-      { name: "Landscape Photography", timeAvailable: new Date(), description: "Photography of natural landscapes", category: categories[6]._id, user: user2._id },
-      { name: "Creative Writing", timeAvailable: new Date(), description: "Writing short stories", category: categories[7]._id, user: user1._id },
-      { name: "Copywriting", timeAvailable: new Date(), description: "Writing content for marketing", category: categories[7]._id, user: user2._id },
-      { name: "Personal Training", timeAvailable: new Date(), description: "Strength and conditioning training", category: categories[8]._id, user: user1._id },
-      { name: "Yoga", timeAvailable: new Date(), description: "Guided yoga sessions", category: categories[8]._id, user: user2._id },
-      { name: "Spanish Lessons", timeAvailable: new Date(), description: "Teaching conversational Spanish", category: categories[9]._id, user: user1._id },
-      { name: "Fashion Design", timeAvailable: new Date(), description: "Creating custom fashion pieces", category: categories[10]._id, user: user2._id },
+      {
+        name: "Painting", timeAvailable: `["Tuesday","Thursday"]`, description: "Acrylic and watercolor painting", category: categories[0]._id, user: user1._id
+      },
+      { name: "Digital Art", timeAvailable: `["Monday","Tuesday","Wednesday","Thursday","Friday"]`, description: "Creating digital illustrations", category: categories[0]._id, user: user2._id },
+      { name: "Coding", timeAvailable: `["Saturday","Sunday"]`, description: "Frontend development skills", category: categories[1]._id, user: user1._id },
+      { name: "Web Design", timeAvailable: `["Tuesday","Thursday"]`, description: "UI/UX design for websites", category: categories[1]._id, user: user2._id },
+      { name: "Guitar", timeAvailable: `["Monday","Tuesday","Wednesday","Thursday","Friday"]`, description: "Playing acoustic guitar", category: categories[2]._id, user: user1._id },
+      { name: "Piano", timeAvailable: `["Saturday","Sunday"]`, description: "Classical piano lessons", category: categories[2]._id, user: user2._id },
+      { name: "Math Tutoring", timeAvailable: `["Saturday","Sunday"]`, description: "Algebra and calculus tutoring", category: categories[3]._id, user: user1._id },
+      { name: "Science Tutoring", timeAvailable: `["Tuesday","Thursday"]`, description: "Physics and chemistry tutoring", category: categories[3]._id, user: user2._id },
+      { name: "Woodworking", timeAvailable: `["Monday","Tuesday","Wednesday","Thursday","Friday"]`, description: "Creating custom furniture", category: categories[4]._id, user: user1._id },
+      { name: "Sewing", timeAvailable: `["Saturday","Sunday"]`, description: "Making clothes and accessories", category: categories[4]._id, user: user2._id },
+      { name: "Baking", timeAvailable: `["Tuesday","Thursday"]`, description: "Baking cakes and pastries", category: categories[5]._id, user: user1._id },
+      { name: "Cooking", timeAvailable: `["Monday","Tuesday","Wednesday","Thursday","Friday"]`, description: "Cooking Italian and Asian cuisine", category: categories[5]._id, user: user2._id },
+      { name: "Portrait Photography", timeAvailable: `["Saturday","Sunday"]`, description: "Capturing portrait photos", category: categories[6]._id, user: user1._id },
+      { name: "Landscape Photography", timeAvailable: `["Saturday","Sunday"]`, description: "Photography of natural landscapes", category: categories[6]._id, user: user2._id },
+      { name: "Creative Writing", timeAvailable: `["Tuesday","Thursday"]`, description: "Writing short stories", category: categories[7]._id, user: user1._id },
+      { name: "Copywriting", timeAvailable: `["Monday","Tuesday","Wednesday","Thursday","Friday"]`, description: "Writing content for marketing", category: categories[7]._id, user: user2._id },
+      { name: "Personal Training", timeAvailable: `["Saturday","Sunday"]`, description: "Strength and conditioning training", category: categories[8]._id, user: user1._id },
+      { name: "Yoga", timeAvailable: `["Saturday","Sunday"]`, description: "Guided yoga sessions", category: categories[8]._id, user: user2._id },
+      { name: "Spanish Lessons", timeAvailable: `["Saturday","Sunday"]`, description: "Teaching conversational Spanish", category: categories[9]._id, user: user1._id },
+      { name: "Fashion Design", timeAvailable: `["Tuesday","Thursday"]`, description: "Creating custom fashion pieces", category: categories[10]._id, user: user2._id },
     ]);
-
     console.log('skills seeded');
   } catch (error) {
     console.error(error);
